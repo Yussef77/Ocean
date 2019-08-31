@@ -6,7 +6,7 @@
     <AssemblyName>Oceanware.Ocean.Blazor</AssemblyName>
     <RootNamespace>Oceanware.Ocean.Blazor</RootNamespace>
     <SignAssembly>true</SignAssembly>
-    <AssemblyOriginatorKeyFile>Oceanware.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Oceanware.Ocean.snk</AssemblyOriginatorKeyFile>
     <Description>Provides the OceanValidator that is the Blazor middleware between the Ocean validation and case correction library and the Blazor UI. This NuGet package provides the OceanValidator that is used on Blazor Razor pages. This replaces the default
 DataAnnotations validation library validator.
 </Description>
