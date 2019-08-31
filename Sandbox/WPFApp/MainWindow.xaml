@@ -1,0 +1,138 @@
+﻿<Window x:Class="WPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFApp"
+        mc:Ignorable="d"
+        Title="Property Validation Demo" Height="450" Width="800">
+    <Grid>
+        <Grid Margin="7">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition
+                    Height="Auto" />
+                <RowDefinition
+                    Height="*" />
+            </Grid.RowDefinitions>
+
+            <TextBlock
+                VerticalAlignment="Center"
+                FontSize="16"
+                Margin="0,12"
+                Text="Customer Maintenance" />
+            <Grid
+                HorizontalAlignment="Left"
+                Width="500"
+                Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition
+                        Width="125" />
+                    <ColumnDefinition
+                        Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                    <RowDefinition
+                        Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Label
+                    Content="Rule Sets" />
+                <ComboBox
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Center"
+                    SelectedItem="{Binding Path=Customer.ActiveRuleSet, Mode=TwoWay}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    ItemsSource="{Binding Path=RuleSets}"
+                    Width="100" />
+                <Label
+                    Content="First Name"
+                    Grid.Row="1" />
+                <TextBox
+                    Text="{Binding Path=Customer.FirstName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="1" />
+                <Label
+                    Content="Middle Name"
+                    Grid.Row="2" />
+                <TextBox
+                    Text="{Binding Path=Customer.MiddleName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="2" />
+                <Label
+                    Content="Last Name"
+                    Grid.Row="3" />
+                <TextBox
+                    Text="{Binding Path=Customer.LastName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="3" />
+                <Label
+                    Content="Birthday"
+                    Grid.Row="4" />
+                <DatePicker
+                    SelectedDate="{Binding Path=Customer.Birthday, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    SelectedDateFormat="Short"
+                    Grid.Column="1"
+                    Grid.Row="4" />
+                <Label
+                    Content="Address Line One"
+                    Grid.Row="5" />
+                <TextBox
+                    Text="{Binding Path=Customer.AddressLineOne, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="5" />
+                <Label
+                    Content="Bank Name"
+                    Grid.Row="6" />
+                <TextBox
+                    Text="{Binding Path=Customer.BankName, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="6" />
+                <Label
+                    Content="Password"
+                    Grid.Row="7" />
+                <TextBox
+                    Text="{Binding Path=Customer.Password, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="7" />
+                <Label
+                    Content="Password Confirm"
+                    Grid.Row="8" />
+                <TextBox
+                    Text="{Binding Path=Customer.PasswordConfirm, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="8" />
+                <Label
+                    Content="Evaluation"
+                    Grid.Row="9" />
+                <TextBox
+                    Text="{Binding Path=Customer.Evaluation, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
+                    Grid.Column="1"
+                    Grid.Row="9"
+                    Height="150" />
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

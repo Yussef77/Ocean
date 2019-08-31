@@ -1,0 +1,68 @@
+﻿<Project Sdk="MSBuild.Sdk.Extras">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0;net45</TargetFrameworks>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Oceanware.pfx</AssemblyOriginatorKeyFile>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Karl Shifflett</Authors>
+    <Company>Oceanware</Company>
+    <Product>Oceanware Ocean Library</Product>
+    <Description>Ocean is a cross-platform library that provides API's for WPF, Blazor, Xamarin, UWP, WebApi, Silverlight, and .NET Class Libraries. Library has builds for .NET Framework, .NET Standard 2.0m and .NET Core 3.0.
+
+Library does not require entities to implement any interfaces or based classes in order to be used in Blazor. For XAML based applications, a rich base class is provided that integrates with XAML binding stacks.</Description>
+    <RepositoryUrl>https://github.com/OceanLibrary/Ocean</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/OceanLibrary</PackageProjectUrl>
+    <PackageTags>validation;blazor;silverlight;wpf;xamarin;uwp;</PackageTags>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
+    <RootNamespace>Oceanware.Ocean</RootNamespace>
+    <AssemblyName>Oceanware.Ocean</AssemblyName>
+    <Version>1.0.0</Version>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;IDE0001;IDE0002;IDE0003;IDE0049;IDE0022;IDE0032;IDE0040;IDE0017;IDE0016;CS0436;IDE0066;IDE0028;IDE1006;IDE0063</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;IDE0001;IDE0002;IDE0003;IDE0049;IDE0022;IDE0032;IDE0040;IDE0017;IDE0016;CS0436;IDE0066;IDE0028;IDE1006;;IDE0063</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="companies.json" />
+    <None Remove="SampleData\sampleData.json" />
+    <None Include="..\..\LICENSE.txt">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="companies.json" />
+    <EmbeddedResource Include="sampleData.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Strings.Designer.cs">
+      <DependentUpon>Strings.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Strings.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
