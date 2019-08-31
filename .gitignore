@@ -12,7 +12,6 @@ VersionInfo.cs
 *.sln.docstates
 *.GhostDoc.user.dic
 *.GhostDoc.xml
-*.pfx
 
 # Build results
 [Dd]ebug/
