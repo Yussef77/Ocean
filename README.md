@@ -10,22 +10,21 @@ For XAML based applications, a rich base class is provided that integrates with 
 |---|---|
 
 ## Documentation
-[Ocean Library Documentation]()
+[Ocean Library Documentation (Coming Soon!)]()
 
 ## NuGet Packages
 ### Oceanware.Ocean.Blazor
-[Oceanware.Ocean.Blazor Validator]()
+[Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
 
 #### Requirements
 .NET Core 3, Preview 8 and latest Visual Studio 2019 Preview
-
 
 Provides the OceanValidator that is the Blazor middleware between the Ocean validation and case correction library and the Blazor UI.
 This NuGet package provides the OceanValidator that is used on Blazor Razor pages. This replaces the default
 DataAnnotations validation library validator.
 
 ### Oceanware.Ocean
-[Oceanware.Ocean]()
+[Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/1.0.0)
 
 Library Features:
 
