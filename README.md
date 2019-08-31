@@ -6,7 +6,7 @@ Library does not require entities to implement any interfaces or based classes i
 For XAML based applications, a rich base class is provided that integrates with XAML binding stacks.
 
 ## Build Status
-|Ocean| Azure Pipelines|
+|Ocean| https://dev.azure.com/re-booting/Oceanware.Ocean/_apis/build/status/OceanLibrary.Ocean?branchName=master|
 |---|---|
 
 ## Documentation
