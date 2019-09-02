@@ -9,7 +9,7 @@
     using Oceanware.Ocean.ValidationRules;
 
     /// <summary>
-    /// Class ModelRulesInvoker validates a class that uses <c>Oceanware.Ocean.ValidationRules</c> validators.
+    /// Class ModelRulesInvoker validates a class that uses Ocean validation rules.
     /// </summary>
     public class ModelRulesInvoker : IModelRulesInvoker {
         static readonly Object LockObject = new Object();
