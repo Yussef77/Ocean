@@ -12,7 +12,7 @@
 
     <p>
         <label for="ruleSet">Customer Object Rule Set</label>
-        <InputSelect Class="form-control" id="ruleSet" @bind-Value="Customer.ActiveRuleSet">
+        <InputSelect T="String" Class="form-control" id="ruleSet" @bind-Value="Customer.ActiveRuleSet">
             <option value="@ValidationConstants.Insert">@ValidationConstants.Insert</option>
             <option value="@ValidationConstants.Update">@ValidationConstants.Update</option>
             <option value="@AppValidationConstants.InReview">@AppValidationConstants.InReview</option>
@@ -35,7 +35,7 @@
     </p>
     <p>
         <label for="birthday">Birthday</label>
-        <InputDate placeholder="Birthday" Class="form-control" id="birthday" @bind-Value="Customer.Birthday" />
+        <InputDate T="DateTime" placeholder="Birthday" Class="form-control" id="birthday" @bind-Value="Customer.Birthday" />
         <ValidationMessage For="(() => Customer.Birthday)" />
     </p>
     <p>

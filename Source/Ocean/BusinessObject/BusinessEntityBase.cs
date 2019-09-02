@@ -417,8 +417,6 @@
                 CheckRulesForProperty(propertyName);
 
                 InternalRaisePropertyChanged(propertyName);
-
-                this.AfterPropertyChanged(propertyName);
             } else {
                 currentValue = newValue;
             }
@@ -460,8 +458,6 @@
                 currentValue = newValue;
                 CheckRulesForProperty(propertyName);
                 InternalRaisePropertyChanged(propertyName);
-
-                this.AfterPropertyChanged(propertyName);
             } else {
                 currentValue = newValue;
             }

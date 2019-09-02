@@ -68,10 +68,10 @@
             Int32 bankRoutingNumberLength = bankRoutingNumber.Length;
             Int32 bankRoutingNumberCalculationValue = 0;
 
-            if (bankRoutingNumberLength != 9) {
-                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberAllBankRoutingNumbersAreNineDigitsInLengthFormat, displayName, bankRoutingNumber), displayName, targetValue);
-                return false;
-            }
+if (bankRoutingNumberLength != 9) {
+    this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberAllBankRoutingNumbersAreNineDigitsInLengthFormat, displayName, bankRoutingNumber), displayName, targetValue);
+    return false;
+}
 
             if (Int32.Parse(bankRoutingNumber.Substring(0, 1)) > 1) {
                 this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberAllBankRoutingNumbersFirstDigitMustBeZeorOrOneFormat, displayName, bankRoutingNumber), displayName, targetValue);
