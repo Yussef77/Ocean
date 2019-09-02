@@ -8,6 +8,9 @@ The Ocean Library is a cross-platform library that provides API's for WPF, Blazo
 ## Documentation
 [Ocean Library Documentation](https://oceanlibrary.github.io/Ocean-Documentation/)
 
+## Code Snippets
+See the `SetPropertyCodeSnippets.zip` file for two code snippets for easily adding entity properties to entity classes that derive from `BusinessEntityBase`.
+
 ## NuGet Packages
 - Package: [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/1.0.0)
 - Package: [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
