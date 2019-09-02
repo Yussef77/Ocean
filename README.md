@@ -1,30 +1,32 @@
 # Oceanware Ocean Library
-Ocean is a cross-platform library that provides API's for WPF, Blazor, Xamarin, UWP, WebApi, Silverlight, and .NET Class Libraries.
-Library has builds for .NET Framework, .NET Standard 2.0m and .NET Core 3.0.
+The Ocean Library is a cross-platform library that provides API's for WPF, Blazor, Xamarin, UWP, WebApi, Silverlight, and .NET Class Libraries. The Ocean Library has builds for .NET Framework, .NET Standard 2.0 and .NET Core 3.0.
 
-Library does not require entities to implement any interfaces or based classes in order to be used in Blazor.
-For XAML based applications, a rich base class is provided that integrates with XAML binding stacks.
+The Ocean Library does not require entities to implement any interfaces or based classes in order to be used in Blazor. For XAML based applications, a rich base class is provided that integrates with XAML binding stacks.
 
 ## Build Status
 |Ocean|[![Build Status](https://dev.azure.com/re-booting/Oceanware.Ocean/_apis/build/status/OceanLibrary.Ocean?branchName=master)](https://dev.azure.com/re-booting/Oceanware.Ocean/_build/latest?definitionId=2&branchName=master) |
 |---|---|
 
 ## Documentation
-[Ocean Library Documentation (Coming Soon!)]()
+[Ocean Library Documentation](https://oceanlibrary.github.io/Ocean-Documentation/)
 
 ## NuGet Packages
+The Ocean Library is delivered two NuGet packages.  Oceanware.Ocean.Blazor is for Blazor UI projects. Oceanware.Ocean is the cross-platform library.
+
 ### Oceanware.Ocean.Blazor
 [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
-
-#### Requirements
-.NET Core 3, Preview 8 and latest Visual Studio 2019 Preview
-
 Provides the OceanValidator that is the Blazor middleware between the Ocean validation and case correction library and the Blazor UI.
+
 This NuGet package provides the OceanValidator that is used on Blazor Razor pages. This replaces the default
 DataAnnotations validation library validator.
 
+#### Requirements
+.NET Core 3, Preview 8 and latest Visual Studio 2019 Preview.
+
 ### Oceanware.Ocean
 [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/1.0.0)
+
+.NET Framework, .NET Standard 2.0 and .NET Core 3.0.
 
 Library Features:
 
@@ -40,12 +42,12 @@ Library Features:
 - Input String Correction
   - Declarative rule attributes that decorate string properties
   - Rich set of provided case correction rules
-  - Provides custom case correction rules and for application developers to add rules at runtime
+  - Provides custom case correction rules and for application developers to add rules at run-time
   - Provides a ModelRulesInvoker to enable easy and simple integration with various UI stacks and their different requirements of validating input, a class, or class property.
 
 - Audit
   - Declarative rules attributes that decorate properties
-  - API to create either a string or dictionary that represents the state of the entity and property values, very useful in logging or populating execptions with state data
+  - API to create either a string or dictionary that represents the state of the entity and property values, very useful in logging or populating exceptions with state data
   - Enables skipping properties, for example a Password property values should not be logged.
   
 - Other
