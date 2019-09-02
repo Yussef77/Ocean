@@ -8,9 +8,8 @@
 
     /// <summary>
     /// Class OceanValidator.
-    /// Derives from the <see cref="Microsoft.AspNetCore.Components.ComponentBase" />
+    /// Derives from the <c>ComponentBase</c>. />
     /// </summary>
-    /// <seealso cref="Microsoft.AspNetCore.Components.ComponentBase" />
     public class OceanValidator : ComponentBase {
         const String StringTypeName = "String";
         readonly IModelRulesInvoker _modelRulesInvoker = new ModelRulesInvoker();

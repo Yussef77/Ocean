@@ -20,7 +20,7 @@
         /// <summary>Gets the value indicating whether to keep or remove the phone extension. Defaults to PhoneExtension.Keep.</summary>
         public PhoneExtension PhoneExtension { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Ocean.InputStringFormatting.CharacterFormat"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CharacterFormat"/> class.</summary>
         /// <param name="characterCasing">The character casing.</param>
         /// <param name="removeSpace">The remove multiple spaces.</param>
         /// <param name="phoneExtension">The phone extension.</param>

@@ -68,7 +68,7 @@
         /// <param name="propertyName">The property name on the target instance class to validate.</param>
         /// <returns>ValidationResult that encapsulates the result of the validation.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public ValidationResult CheckAllValidationRulesForProperty<T>(T target, String propertyName) where T : class {
             if (target is null) {
                 throw new ArgumentNullException(nameof(target));

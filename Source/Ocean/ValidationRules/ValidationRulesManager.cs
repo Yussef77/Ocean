@@ -33,7 +33,7 @@ namespace Oceanware.Ocean.ValidationRules {
         /// <param name="rule">The rule.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <exception cref="ArgumentNullException">Thrown when rule is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public void AddRule(IValidationRule rule, String propertyName) {
             if (rule is null) {
                 throw new ArgumentNullException(nameof(rule));
@@ -48,8 +48,8 @@ namespace Oceanware.Ocean.ValidationRules {
 
         /// <summary>Returns the list containing rules for a property. If no list exists one is created and returned.</summary>
         /// <param name="propertyName">Name of the property.</param>
-        /// <returns><see cref="T:Oceanware.OceanValidation.ValidationRulesList"/> for the specified property name.</returns>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <returns><see cref="ValidationRulesList"/> for the specified property name.</returns>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public ValidationRulesList GetRulesForProperty(String propertyName) {
             if (String.IsNullOrWhiteSpace(propertyName)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(propertyName));

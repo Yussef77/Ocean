@@ -7,9 +7,8 @@
 
     /// <summary>
     /// Class DomainValidatorAttribute. This class cannot be inherited. Used to validate the property value is contained in the domain.
-    /// Derives from the <see cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
+    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute" />
     /// </summary>
-    /// <seealso cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class DomainValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
         const Int32 Zero = 0;
@@ -20,7 +19,7 @@
         /// <value>The data.</value>
         public String[] Data { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.DomainValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="DomainValidatorAttribute"/> class.</summary>
         /// <param name="requiredEntry">The required entry.</param>
         /// <param name="data">The data is a param array of strings separated by a comma that represent each valid value in the domain.</param>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value requiredEntry is not defined.</exception>
@@ -54,7 +53,7 @@
             data.CopyTo(this.Data, Zero);
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.DomainValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="DomainValidatorAttribute"/> class.</summary>
         /// <param name="data">The data is a param array of strings separated by a comma that represent each valid value in the domain.</param>
         /// <exception cref="ArgumentNullException">Thrown when data is null.</exception>
         /// <exception cref="InvalidOperationException">Thrown when domain does not have at least one value.</exception>
@@ -74,13 +73,13 @@
         }
 
         /// <summary>
-        /// Validates the property, Error message is set in the <seealso cref="FinalErrorMessage" /> if the validation fails.
+        /// Validates the property, Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage" /> if the validation fails.
         /// </summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public override Boolean IsValid(Object target, String propertyName) {
             if (target is null) {
                 throw new ArgumentNullException(nameof(target));

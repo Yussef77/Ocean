@@ -7,12 +7,12 @@ namespace Oceanware.Ocean.ValidationRules {
         IList<IValidationRule> _list;
 
         /// <summary>
-        /// Gets the list of <seealso cref="IValidationRule"./>.
+        /// Gets the list.
         /// </summary>
-        /// <value>The list.</value>
+        /// <value>The <see cref="IList{IValidationRule}"/>.</value>
         public IList<IValidationRule> List => _list ?? (_list = new List<IValidationRule>());
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.ValidationRulesList"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="ValidationRulesList"/> class.</summary>
         public ValidationRulesList() { }
     }
 }

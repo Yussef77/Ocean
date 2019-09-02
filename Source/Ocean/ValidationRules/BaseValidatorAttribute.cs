@@ -6,8 +6,7 @@
     using Ocean.Extensions;
 
     /// <summary>Class BaseValidatorAttribute.
-    /// Derives from the <see cref="System.Attribute"/></summary>
-    /// <seealso cref="System.Attribute" />
+    /// Derives from the <see cref="Attribute"/></summary>
     public abstract class BaseValidatorAttribute : Attribute, IValidationRule {
 
         /// <summary>
@@ -20,7 +19,7 @@
         ///     Gets or sets the resource name (property name) to use as the key for lookups on the resource type.
         /// </summary>
         /// <value>
-        ///     Use this property to set the name of the property within <see cref="ErrorMessageResourceType" /> that will provide a localized error message.  Use <see cref="ErrorMessage" /> for non-localized error messages.
+        ///     Use this property to set the name of the property within <c>ErrorMessageResourceType</c> that will provide a localized error message.  Use <c>ErrorMessage</c> for non-localized error messages.
         /// </value>
         public String ErrorMessageResourceName { get; set; } = String.Empty;
 
@@ -28,9 +27,9 @@
         ///     Gets or sets the resource type to use for error message lookups.
         /// </summary>
         /// <value>
-        ///     Use this property only in conjunction with <see cref="ErrorMessageResourceName" />.  They are used together to retrieve localized error messages at runtime. If either is null or an empty string, this pair of properties will be ignored for message generation.
+        ///     Use this property only in conjunction with <see cref="BaseValidatorAttribute.ErrorMessageResourceName" />.  They are used together to retrieve localized error messages at runtime. If either is null or an empty string, this pair of properties will be ignored for message generation.
         ///     <para>
-        ///         Use <see cref="OverrideErrorMessage" /> instead of this pair if error messages are not localized.
+        ///         Use <see cref="BaseValidatorAttribute.OverrideErrorMessage" /> instead of this pair if error messages are not localized.
         ///     </para>
         /// </value>
         public Type ErrorMessageResourceType { get; set; }
@@ -48,7 +47,7 @@
         /// <summary>
         /// Get and sets OverrideErrorMessage. Developers can specify an override error message that is displayed when the validation rule is broken.  If supplied, override message replaces the normal broken rule or custom message.
         /// </summary>
-        /// <value>The override error message is intended to be used for non-localizable override error messages in lieu of either the default error message or the user <see cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.ErrorMessageResourceType"/> and <see cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.ErrorMessageResourceName"/> for localizable error messages.</value>
+        /// <value>The override error message is intended to be used for non-localizable override error messages in lieu of either the default error message or the user <see cref="BaseValidatorAttribute.ErrorMessageResourceType"/> and <see cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.ErrorMessageResourceName"/> for localizable error messages.</value>
         public String OverrideErrorMessage { get; set; } = String.Empty;
 
         /// <summary>Gets or sets the name of the proper case property. The default value is <c>ProperCasePropertyName.Yes</c>.</summary>
@@ -57,7 +56,7 @@
 
         /// <summary>Gets or sets the resource error message format String argument.</summary>
         /// <value>
-        /// When not <c>None</c>, the value is used to determine the arguments specified, and the order specified when using <seealso cref="String.Format"/> to format the <seealso cref="ErrorMessageResourceName"/> value.
+        /// When not <c>None</c>, the value is used to determine the arguments specified, and the order specified when using <seealso cref="String.Format"/> to format the <seealso cref="BaseValidatorAttribute.ErrorMessageResourceName"/> value.
         /// </value>
         public ResourceErrorMessageFormatStringArgument ResourceErrorMessageFormatStringArgument { get; set; } = ResourceErrorMessageFormatStringArgument.None;
 
@@ -77,28 +76,27 @@
         /// <value>The name of the rule type.</value>
         public String RuleTypeName { get { return this.GetType().Name; } }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.BaseValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="BaseValidatorAttribute"/> class.</summary>
         protected BaseValidatorAttribute() {
         }
 
-        /// <summary>Validates the property, Deriving classes must set the <seealso cref="FinalErrorMessage"/> if the validation fails.</summary>
+        /// <summary>Validates the property, Deriving classes must set the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public abstract Boolean IsValid(Object target, String propertyName);
 
         /// <summary>
         ///   <para>If the user has set the ErrorMessage property this will be used as the message.</para>
         ///   <para>If both ErrorMessageResourceName and ErrorMessageResourceType are set the ErrorMessageString value will be used as the message.</para>
-        ///   <para>Creates the failed <see cref="System.ComponentModel.DataAnnotations.ValidationResult"/> from the supplied message and member name.</para>
         /// </summary>
         /// <param name="defaultMessage">The error message provided by the validator.</param>
         /// <param name="displayName">Display name for the property.</param>
         /// <param name="targetValue">The target value.</param>
-        /// <returns>The a failed <see cref="System.ComponentModel.DataAnnotations.ValidationResult"/>.</returns>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when defaultMessage is null, empty, or white space.</exception>
+        /// <returns>A string error message.</returns>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when defaultMessage is null, empty, or white space.</exception>
         protected String CreateFailedValidationMessage(String defaultMessage, String displayName, Object targetValue) {
             if (String.IsNullOrWhiteSpace(defaultMessage)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(defaultMessage));
@@ -129,7 +127,7 @@
         /// <param name="friendlyName">Friendly name overrides the property name.</param>
         /// <param name="properCasePropertyName">ProperCasePropertyName determines if the <c>propertyName</c>gets parsed or not.</param>
         /// <returns>Display name based on the above arguments.</returns>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value properCasePropertyName is not defined.</exception>
         protected String ResolveDisplayName(String propertyName, String friendlyName, ProperCasePropertyName properCasePropertyName) {
             if (String.IsNullOrWhiteSpace(propertyName)) {
@@ -175,9 +173,9 @@
         /// <param name="displayName">Display name for the property.</param>
         /// <param name="targetValue">The target value.</param>
         /// <returns>String.</returns>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when displayName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when displayName is null, empty, or white space.</exception>
         /// <exception cref="InvalidOperationException">Thrown when method call is invalid for the object's current state.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
+        /// <exception cref="InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
         String GetResourceErrorMessage(String displayName, Object targetValue) {
             if (String.IsNullOrWhiteSpace(displayName)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(displayName));

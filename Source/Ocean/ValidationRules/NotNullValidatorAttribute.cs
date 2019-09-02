@@ -5,9 +5,8 @@
 
     /// <summary>
     /// Class NotNullValidatorAttribute. This class cannot be inherited. Used to verify both Nullable and non-nullable properties are not null or DBNull.
-    /// Derives from the <see cref="Oceanware.OceanValidation.BaseValidatorAttribute" />
+    /// Derives from the <see cref="BaseValidatorAttribute" />
     /// </summary>
-    /// <seealso cref="Oceanware.OceanValidation.BaseValidatorAttribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class NotNullValidatorAttribute : BaseValidatorAttribute {
 
@@ -18,13 +17,13 @@
         }
 
         /// <summary>
-        /// Validates the property, Error message is set in the <seealso cref="FinalErrorMessage" /> if the validation fails.
+        /// Validates the property, Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage" /> if the validation fails.
         /// </summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         /// <remarks>
         ///<para>Boxing and Unboxing</para>
         ///<para>When a nullable type is boxed, the common language runtime automatically boxes the underlying value of the Nullable Object, not the Nullable Object itself. That is, if the HasValue property is true, the contents of the Value property is boxed. If the HasValue property is false, a null reference (Nothing in Visual Basic) is boxed.</para>

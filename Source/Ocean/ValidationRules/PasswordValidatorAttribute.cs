@@ -9,9 +9,8 @@
 
     /// <summary>
     /// Class PasswordValidatorAttribute. This class cannot be inherited.
-    /// Derives from the <see cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
+    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute" />
     /// </summary>
-    /// <seealso cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class PasswordValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
         const Int32 One = 1;
@@ -59,7 +58,7 @@
         /// <value>The upper case character.</value>
         public UpperCaseCharacter UpperCaseCharacter { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.PasswordValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="PasswordValidatorAttribute"/> class.</summary>
         /// <param name="lowerCaseCharacter">Is a lower case character required.</param>
         /// <param name="upperCaseCharacter">Is an upper case character required.</param>
         /// <param name="digitCharacter">Is a digit character required.</param>
@@ -78,7 +77,7 @@
             : this(minimumLength, maximumLength, lowerCaseCharacter, upperCaseCharacter, digitCharacter, specialCharacter, RequiredEntry.Yes, allowedPasswordSpecialCharacters) {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.PasswordValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="PasswordValidatorAttribute"/> class.</summary>
         /// <param name="lowerCaseCharacter">Is a lower case character required.</param>
         /// <param name="upperCaseCharacter">Is an upper case character required.</param>
         /// <param name="digitCharacter">Is a digit character required.</param>
@@ -133,14 +132,14 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Validates the String property. Error message is set in the <seealso cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
+        /// <summary>Validates the String property. Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         /// <exception cref="InvalidOperationException">Thrown when method call is invalid for the object's current state. Bank routing number validation rule can only be applied to String properties.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when target is null.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when target is null.</exception>
         public override Boolean IsValid(Object target, String propertyName) {
             if (target is null) {
                 throw new ArgumentNullException(nameof(target));

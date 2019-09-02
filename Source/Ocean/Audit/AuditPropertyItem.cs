@@ -38,7 +38,7 @@
         /// <value>The value.</value>
         public String Value { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.Ocean.Audit.AuditPropertyItem"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="AuditPropertyItem"/> class.</summary>
         /// <param name="auditSequence">The audit sequence.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="friendlyName">The friendly property name.</param>

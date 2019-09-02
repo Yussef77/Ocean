@@ -6,7 +6,7 @@ namespace Oceanware.Ocean.InputStringRules {
     /// <summary>
     /// Represents CharacterFormattingAttribute, when applied to a business entity class property, that property will have its case corrected according to the CharacterCasing assigned.
     /// </summary>
-    /// <seealso cref="System.Attribute" />
+    /// <seealso cref="Attribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class CharacterFormattingAttribute : Attribute {
         Boolean _isPhoneCasing;
@@ -19,7 +19,7 @@ namespace Oceanware.Ocean.InputStringRules {
 
         /// <summary>Gets or sets a value indicating whether to keep or remove the phone extension. Defaults to PhoneExtension.Keep.</summary>
         /// <value>The phone extension.</value>
-        /// <exception cref="T:System.InvalidOperationException">Thrown when property is set an Character Case Rule is not a Phone Rule.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when property is set an Character Case Rule is not a Phone Rule.</exception>
         public PhoneExtension PhoneExtension {
             get => _phoneExtension;
             set {

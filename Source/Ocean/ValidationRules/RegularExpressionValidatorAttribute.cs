@@ -7,9 +7,8 @@
 
     /// <summary>
     /// Class RegularExpressionValidatorAttribute. This class cannot be inherited. Used to validate string properties ensuring they match the supplied regex pattern.
-    /// Derives from the <see cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
+    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute" />
     /// </summary>
-    /// <seealso cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class RegularExpressionValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
 
@@ -25,7 +24,7 @@
         /// <value>The type of the regular expression pattern.</value>
         public RegularExpressionPatternType RegularExpressionPatternType { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RegularExpressionValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RegularExpressionValidatorAttribute"/> class.</summary>
         /// <param name="regularExpressionPatternType">Type of the regular expression pattern.</param>
         /// <param name="requiredEntry">The required entry.</param>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value regularExpressionPatternType is not defined.</exception>
@@ -42,7 +41,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RegularExpressionValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RegularExpressionValidatorAttribute"/> class.</summary>
         /// <param name="customRegularExpressionPattern">The custom regular expression pattern.</param>
         /// <param name="requiredEntry">The required entry.</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when customRegularExpressionPattern is an invalid regular expression pattern.</exception>
@@ -59,7 +58,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Validates the string property. Error message is set in the <seealso cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.FinalErrorMessage"/> property.</summary>
+        /// <summary>Validates the string property. Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> property.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>

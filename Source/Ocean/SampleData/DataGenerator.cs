@@ -68,7 +68,7 @@
         }
 
         /// <summary>
-        /// Gets a birthday for an adutl.
+        /// Gets a birthday for an adult.
         /// </summary>
         /// <returns>DateTime.</returns>
         public DateTime GetAdultBirthday() {
@@ -171,7 +171,7 @@
         /// <param name="minValue">The min value.</param>
         /// <param name="maxValue">The max value.</param>
         /// <returns>DateTime that is between minValue and maxValue.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
         public DateTime GetDate(DateTime minValue, DateTime maxValue) {
             if (minValue > maxValue) {
                 throw new ArgumentOutOfRangeException(nameof(minValue), Strings.IsGreaterThanMaxValue);
@@ -192,7 +192,7 @@
         /// <param name="minValue">The min value.</param>
         /// <param name="maxValue">The max value.</param>
         /// <returns>Decimal that is between minValue and maxValue.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
         public Decimal GetDecimal(Int32 minValue, Int32 maxValue) {
             if (minValue > maxValue) {
                 throw new ArgumentOutOfRangeException(nameof(minValue), Strings.IsGreaterThanMaxValue);
@@ -209,7 +209,7 @@
         /// <param name="minValue">The min value.</param>
         /// <param name="maxValue">The max value.</param>
         /// <returns>Double that is between minValue and maxValue.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
         public Double GetDouble(Int32 minValue, Int32 maxValue) {
             if (minValue > maxValue) {
                 throw new ArgumentOutOfRangeException(nameof(minValue), Strings.IsGreaterThanMaxValue);
@@ -266,7 +266,7 @@
         /// <param name="minValue">The min value.</param>
         /// <param name="maxValue">The max value.</param>
         /// <returns>Integer that is between minValue and maxValue.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
         public Int32 GetInteger(Int32 minValue, Int32 maxValue) {
             if (minValue > maxValue) {
                 throw new ArgumentOutOfRangeException(nameof(minValue), Strings.IsGreaterThanMaxValue);
@@ -322,7 +322,7 @@
         }
 
         /// <summary>
-        /// Gets a <seealso cref="PersonItem"./>
+        /// Gets a <seealso cref="PersonItem"/>.
         /// </summary>
         /// <returns><see cref="PersonItem"/>.</returns>
         public PersonItem GetPersonItem() {
@@ -386,7 +386,7 @@
         /// <param name="minValue">The minimum value.</param>
         /// <param name="maxValue">The maximum value.</param>
         /// <returns>Single.</returns>
-        /// <exception cref="T:System.ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
+        /// <exception cref="ArgumentOutOfRangeException">minValue - Is greater than maxValue</exception>
         public Single GetSingle(Int32 minValue, Int32 maxValue) {
             if (minValue > maxValue) {
                 throw new ArgumentOutOfRangeException(nameof(minValue), Strings.IsGreaterThanMaxValue);

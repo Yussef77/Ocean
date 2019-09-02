@@ -41,9 +41,9 @@
         /// <param name="propertyName">Name of the property.</param>
         /// <param name="errorMessage">The error message.</param>
         /// <param name="ruleType">Type of the rule.</param>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when ruleTypeName is null, empty, or white space.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when errorMessage is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when ruleTypeName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when errorMessage is null, empty, or white space.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value ruleType is not defined.</exception>
         public void Add(String ruleTypeName, String propertyName, String errorMessage, RuleType ruleType) {
             if (String.IsNullOrWhiteSpace(ruleTypeName)) {
@@ -76,7 +76,7 @@
         /// <summary>Gets the broken rules for a property.</summary>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>IEnumerable&lt;BrokenRule&gt;.</returns>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public IEnumerable<BrokenRule> GetBrokenRules(String propertyName) {
             if (String.IsNullOrWhiteSpace(propertyName)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(propertyName));
@@ -107,7 +107,7 @@
         /// </summary>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Boolean.</returns>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         public Boolean Remove(String propertyName) {
             if (String.IsNullOrWhiteSpace(propertyName)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(propertyName));

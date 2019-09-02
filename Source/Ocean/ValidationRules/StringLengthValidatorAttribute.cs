@@ -5,8 +5,7 @@
     using System.Reflection;
 
     /// <summary>Class StringLengthValidatorAttribute. This class cannot be inherited. Used to validate a strings length.
-    /// Derives from the <see cref="T:Oceanware.OceanValidation.BaseValidatorAttribute"/></summary>
-    /// <seealso cref="Oceanware.OceanValidation.BaseValidatorAttribute" />
+    /// Derives from the <see cref="BaseValidatorAttribute"/></summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public sealed class StringLengthValidatorAttribute : BaseValidatorAttribute {
         const Int32 MinusOne = -1;
@@ -41,7 +40,7 @@
         public StringLengthValidatorAttribute(Int32 minimumLength, Int32 maximumLength)
             : this(minimumLength, maximumLength, AllowNullString.No) { }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.StringLengthValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="StringLengthValidatorAttribute"/> class.</summary>
         /// <param name="minimumLength">The minimum length.</param>
         /// <param name="maximumLength">The maximum length.</param>
         /// <param name="allowNullString">Allow a null string, yes or no.</param>
@@ -74,7 +73,7 @@
             : this(MinusOne, maximumLength, allowNullString) { }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="StringLengthValidatorAttribute"/> class. <seealso cref="AllowNullString" /> defaults to <c>AllowNullString.No</c>.
+        /// Initializes a new instance of the <see cref="StringLengthValidatorAttribute"/> class. <seealso cref="StringLengthValidatorAttribute.AllowNullString" /> defaults to <c>AllowNullString.No</c>.
         /// </summary>
         /// <param name="maximumLength">The maximum length.</param>
         /// <exception cref="ArgumentOutOfRangeException">Thrown when maximumLength is less than one.</exception>

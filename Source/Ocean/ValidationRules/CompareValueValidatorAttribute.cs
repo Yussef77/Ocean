@@ -5,10 +5,9 @@
     using System.Reflection;
 
     /// <summary>
-    /// Class CompareValueValidatorAttribute. This class cannot be inherited. Used to compare the value to the target or compare to value based on the <seealso cref="ComparisonType"/>.
-    /// Derives from the <see cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
+    /// Class CompareValueValidatorAttribute. This class cannot be inherited. Used to compare the value to the target or compare to value based on the <seealso cref="CompareValueValidatorAttribute.ComparisonType"/>.
+    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute" />
     /// </summary>
-    /// <seealso cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true, Inherited = false)]
     public sealed class CompareValueValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
         const Int32 Zero = 0;
@@ -25,7 +24,7 @@
         /// <value>The type of the comparison.</value>
         public ComparisonType ComparisonType { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="requiredEntry">The required entry.</param>
@@ -43,7 +42,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="requiredEntry">The required entry.</param>
@@ -61,7 +60,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="requiredEntry">The required entry.</param>
@@ -79,7 +78,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="requiredEntry">The required entry.</param>
@@ -97,7 +96,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="requiredEntry">The required entry.</param>
@@ -115,7 +114,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="requiredEntry">The required entry.</param>
@@ -133,7 +132,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.CompareValueValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="CompareValueValidatorAttribute"/> class.</summary>
         /// <param name="comparisonType">Type of the comparison.</param>
         /// <param name="compareToValue">The compare to value.</param>
         /// <param name="convertToType">Type of the convert to.</param>
@@ -141,8 +140,8 @@
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value comparisonType is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value requiredEntry is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value convertToType is not defined.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when compareToValue is null, empty, or white space.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when compareToValue is null, empty, or white space.</exception>
+        /// <exception cref="InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
         public CompareValueValidatorAttribute(ComparisonType comparisonType, String compareToValue, ConvertToType convertToType, RequiredEntry requiredEntry = RequiredEntry.Yes) {
             if (!Enum.IsDefined(typeof(ComparisonType), comparisonType)) {
                 throw new InvalidEnumArgumentException(nameof(comparisonType), (Int32)comparisonType, typeof(ComparisonType));
@@ -177,13 +176,13 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Validates the string property. Error message is set in the <seealso cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.FinalErrorMessage"/> property.</summary>
+        /// <summary>Validates the string property. Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> property.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
         public override Boolean IsValid(Object target, String propertyName) {
             if (target is null) {
                 throw new ArgumentNullException(nameof(target));

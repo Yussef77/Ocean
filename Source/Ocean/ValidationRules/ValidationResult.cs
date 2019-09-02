@@ -23,7 +23,7 @@
         /// <value>The validation errors.</value>
         public IReadOnlyList<KeyValuePair<String, BrokenRule>> ValidationErrors { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.ValidationResult"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="ValidationResult"/> class.</summary>
         /// <param name="validationErrors">The validation errors.</param>
         /// <exception cref="ArgumentNullException">Thrown when validationErrors is null.</exception>
         public ValidationResult(IReadOnlyList<KeyValuePair<String, BrokenRule>> validationErrors) {

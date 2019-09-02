@@ -6,12 +6,11 @@
     using System.Reflection;
 
     /// <summary>Class BankRoutingNumberValidatorAttribute. This class cannot be inherited. Used to validate string properties that represent a bank routing number.
-    /// Derives from the <see cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute"/></summary>
-    /// <seealso cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
+    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute"/></summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class BankRoutingNumberValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.BankRoutingNumberValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="BankRoutingNumberValidatorAttribute"/> class.</summary>
         /// <param name="requiredEntry">The required entry.</param>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value requiredEntry is not defined.</exception>
         public BankRoutingNumberValidatorAttribute(RequiredEntry requiredEntry = RequiredEntry.Yes) {
@@ -21,14 +20,14 @@
             base.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Validates the string property. Error message is set in the <seealso cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
+        /// <summary>Validates the string property. Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         /// <exception cref="InvalidOperationException">Thrown when method call is invalid for the object's current state. Bank routing number validation rule can only be applied to String properties.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when target is null.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when target is null.</exception>
         public override Boolean IsValid(Object target, String propertyName) {
             if (target is null) {
                 throw new ArgumentNullException(nameof(target));

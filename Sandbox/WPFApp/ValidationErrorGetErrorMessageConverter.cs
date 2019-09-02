@@ -7,9 +7,8 @@
 
     /// <summary>
     /// Class ValidationErrorGetErrorMessageConverter.
-    /// Derives from the <see cref="System.Windows.Data.IValueConverter" />
+    /// Derives from the <see cref="IValueConverter" />
     /// </summary>
-    /// <seealso cref="System.Windows.Data.IValueConverter" />
     [ValueConversion(typeof(ValidationError), typeof(String))]
     public class ValidationErrorGetErrorMessageConverter : IValueConverter {
 

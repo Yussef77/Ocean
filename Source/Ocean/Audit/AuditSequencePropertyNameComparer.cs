@@ -5,9 +5,8 @@
 
     /// <summary>
     /// Class AuditSequencePropertyNameComparer.
-    /// Derives from the <see cref="System.Collections.Generic.IComparer{Oceanware.Ocean.Audit.AuditPropertyItem}" />
+    /// Derives from the <see cref="IComparer{AuditPropertyItem}" />
     /// </summary>
-    /// <seealso cref="System.Collections.Generic.IComparer{Oceanware.Ocean.Audit.AuditPropertyItem}" />
     public class AuditSequencePropertyNameComparer : IComparer<AuditPropertyItem> {
         const String NineZeros = "000000000";
 

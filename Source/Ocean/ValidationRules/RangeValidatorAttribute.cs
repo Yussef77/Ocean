@@ -6,9 +6,8 @@
 
     /// <summary>
     /// Class RangeValidatorAttribute. This class cannot be inherited. Used to compare the target value to a lower and upper boundary to see if the value is within the specified range.
-    /// Derives from the <see cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
+    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute" />
     /// </summary>
-    /// <seealso cref="Oceanware.OceanValidation.OptionallyRequiredBaseValidatorAttribute" />
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public sealed class RangeValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
         const Int32 Zero = 0;
@@ -37,7 +36,7 @@
         /// <value>The upper value.</value>
         public IComparable UpperValue { get; }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -64,7 +63,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -91,7 +90,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -118,7 +117,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -145,7 +144,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -172,7 +171,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -201,7 +200,7 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Initializes a new instance of the <see cref="T:Oceanware.OceanValidation.RangeValidatorAttribute"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RangeValidatorAttribute"/> class.</summary>
         /// <param name="lowerRangeBoundaryType">Type of the lower range boundary.</param>
         /// <param name="lowerValue">The lower value.</param>
         /// <param name="upperRangeBoundaryType">Type of the upper range boundary.</param>
@@ -214,7 +213,7 @@
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value convertToType is not defined.</exception>
         /// <exception cref="ArgumentNullException">Thrown when lowerValue is null.</exception>
         /// <exception cref="ArgumentNullException">Thrown when upperValue is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
+        /// <exception cref="InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
         public RangeValidatorAttribute(RangeBoundaryType lowerRangeBoundaryType, String lowerValue, RangeBoundaryType upperRangeBoundaryType, String upperValue, ConvertToType convertToType, RequiredEntry requiredEntry = RequiredEntry.Yes) {
             if (!Enum.IsDefined(typeof(RangeBoundaryType), lowerRangeBoundaryType)) {
                 throw new InvalidEnumArgumentException(nameof(lowerRangeBoundaryType), (Int32)lowerRangeBoundaryType, typeof(RangeBoundaryType));
@@ -255,13 +254,13 @@
             this.RequiredEntry = requiredEntry;
         }
 
-        /// <summary>Validates the string property. Error message is set in the <seealso cref="P:Oceanware.OceanValidation.BaseValidatorAttribute.FinalErrorMessage"/> property.</summary>
+        /// <summary>Validates the string property. Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> property.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>
         /// <exception cref="ArgumentNullException">Thrown when target is null.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
-        /// <exception cref="T:Oceanware.OceanValidation.InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="InvalidEnumValueException">Thrown when enum value has not been programmed.</exception>
         public override Boolean IsValid(Object target, String propertyName) {
             if (target is null) {
                 throw new ArgumentNullException(nameof(target));

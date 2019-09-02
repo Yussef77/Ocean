@@ -56,7 +56,7 @@ namespace Oceanware.Ocean.InputStringRules {
         /// <param name="characterCasing">The desired character casing formatting.</param>
         /// <param name="removeSpace">The remove multiple space.</param>
         /// <param name="phoneExtension">The phone extension.</param>
-        /// <exception cref="T:Ocean.ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when propertyName is null, empty, or white space.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value characterCasing is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value removeSpace is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value phoneExtension is not defined.</exception>

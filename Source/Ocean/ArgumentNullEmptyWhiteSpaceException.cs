@@ -5,9 +5,8 @@
 
     /// <summary>
     /// Class ArgumentNullEmptyWhiteSpaceException.
-    /// Derives from the <see cref="System.Exception" />
+    /// Derives from the <see cref="Exception" />
     /// </summary>
-    /// <seealso cref="System.Exception" />
     public class ArgumentNullEmptyWhiteSpaceException : Exception {
 
         /// <summary>
@@ -43,7 +42,7 @@
         /// </summary>
         /// <param name="parameterName">Name of the parameter.</param>
         /// <param name="message">The message.</param>
-        /// <exception cref="Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when parameterName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when parameterName is null, empty, or white space.</exception>
         public ArgumentNullEmptyWhiteSpaceException(String parameterName, String message) : base(message) {
             if (String.IsNullOrWhiteSpace(parameterName)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(parameterName));
@@ -55,7 +54,7 @@
         /// Preferred constructor because a localized default message is created. Initializes a new instance of the <see cref="ArgumentNullEmptyWhiteSpaceException"/> class.
         /// </summary>
         /// <param name="parameterName">Name of the parameter.</param>
-        /// <exception cref="Oceanware.OceanValidation.ArgumentNullEmptyWhiteSpaceException">Thrown when parameterName is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when parameterName is null, empty, or white space.</exception>
         public ArgumentNullEmptyWhiteSpaceException(String parameterName) : base(String.Format(Strings.StringIsNullEmptyOrWhiteSpaceFormat, parameterName)) {
             if (String.IsNullOrWhiteSpace(parameterName)) {
                 throw new ArgumentNullEmptyWhiteSpaceException(nameof(parameterName));

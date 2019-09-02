@@ -5,9 +5,8 @@
 
     /// <summary>
     /// Class PropertyNameComparer.
-    /// Derives from the <see cref="System.Collections.Generic.IComparer{Oceanware.Ocean.Audit.AuditPropertyItem}" />
+    /// Derives from the <see cref="IComparer{AuditPropertyItem}" />
     /// </summary>
-    /// <seealso cref="System.Collections.Generic.IComparer{Oceanware.Ocean.Audit.AuditPropertyItem}" />
     public class PropertyNameComparer : IComparer<AuditPropertyItem> {
 
         /// <summary>

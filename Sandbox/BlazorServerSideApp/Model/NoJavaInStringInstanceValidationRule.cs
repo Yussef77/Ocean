@@ -8,8 +8,7 @@
     /// <summary>Class NoJavaInStringInstanceValidationRule.
     /// <para>This is a demo of using a simple class to provide a dynamic validation rule.</para>
     /// <para>This demo rule looks for Java in the input and returns IsValid <c>false</c> if found.</para>
-    /// Derives from the <see cref="T:Oceanware.OceanValidation.IValidationRule"/></summary>
-    /// <seealso cref="Oceanware.OceanValidation.IValidationRule" />
+    /// Derives from the <see cref="IValidationRule"/></summary>
     public class NoJavaInStringInstanceValidationRule : IValidationRule {
         public String FinalErrorMessage { get; private set; }
 

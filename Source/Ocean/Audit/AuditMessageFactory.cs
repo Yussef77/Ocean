@@ -18,17 +18,17 @@ namespace Oceanware.Ocean.Audit {
         AuditMessageFactory() {
         }
 
-        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
+        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
         /// <typeparam name="T">Class type.</typeparam>
         /// <param name="instance">The instance.</param>
         /// <param name="includeAllProperties">The include all properties.</param>
         /// <param name="sortOption">The sort option.</param>
         /// <param name="auditFormat">The audit format.</param>
         /// <param name="defaultValue">
-        /// If no class properties are decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
+        /// If no class properties are decorated with the <see cref="AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
         /// </param>
         /// <returns>IDictionary populated with properties and values.</returns>
-        /// <exception cref="T:System.ArgumentNullException">Thrown when dictionary is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when dictionary is null.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value includeAllProperties is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value sortOption is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value auditFormat is not defined.</exception>
@@ -37,7 +37,7 @@ namespace Oceanware.Ocean.Audit {
             return AuditToIDictionary(instance, dictionary, includeAllProperties, sortOption, auditFormat, defaultValue);
         }
 
-        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
+        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
         /// <typeparam name="T">Class type.</typeparam>
         /// <param name="instance">The instance.</param>
         /// <param name="dictionary">Pass an IDictionary Object that needs to be populated. This could be the Data property of an exception Object that you want to populate, etc.</param>
@@ -45,10 +45,10 @@ namespace Oceanware.Ocean.Audit {
         /// <param name="sortOption">The sort option.</param>
         /// <param name="auditFormat">The audit format.</param>
         /// <param name="defaultValue">
-        /// If no class properties are decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
+        /// If no class properties are decorated with the <see cref="AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
         /// </param>
         /// <returns>IDictionary populated with properties and values.</returns>
-        /// <exception cref="T:System.ArgumentNullException">Thrown when dictionary is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when dictionary is null.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value includeAllProperties is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value sortOption is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value auditFormat is not defined.</exception>
@@ -86,12 +86,12 @@ namespace Oceanware.Ocean.Audit {
         /// <param name="sortOption">The sort option.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <param name="defaultValue">
-        /// If no class properties are decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/> and the defaultValue is not null or an empty string, then the default value will be returned.
+        /// If no class properties are decorated with the <see cref="AuditAttribute"/> and the defaultValue is not null or an empty string, then the default value will be returned.
         /// </param>
         /// <returns>A String containing each property name, friendly name and value, separated by the delimiter and sorted by AuditAttribute.AuditSequence and then property name.</returns>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value includeAllProperties is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value sortOption is not defined.</exception>
-        /// <exception cref="T:Oceanware.Ocean.ArgumentNullEmptyWhiteSpaceException">Thrown when delimiter is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when delimiter is null, empty, or white space.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value auditFormat is not defined.</exception>
         public static String AuditToString<T>(T instance, IncludeAllProperties includeAllProperties, SortOption sortOption, String delimiter = Constants.DefaultAuditMessageDelimiter, AuditFormat auditFormat = AuditFormat.Compact, String defaultValue = Constants.AuditDefaultValue) {
             if (!Enum.IsDefined(typeof(IncludeAllProperties), includeAllProperties)) {

@@ -9,7 +9,7 @@
     /// <summary>
     /// Class ObservableObject.
     /// </summary>
-    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
+    /// <seealso cref="INotifyPropertyChanged" />
     [Serializable]
     public abstract class ObservableObject : INotifyPropertyChanged {
 
@@ -34,7 +34,7 @@
         }
 
         /// <summary>
-        /// Handles the <see cref="E:PropertyChanged" /> event.
+        /// Handles the <see cref="ObservableObject.PropertyChanged" /> event.
         /// </summary>
         /// <param name="args">The <see cref="PropertyChangedEventArgs" /> instance containing the event data.</param>
         /// <exception cref="ArgumentNullException">args is null</exception>

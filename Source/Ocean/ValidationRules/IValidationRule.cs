@@ -23,7 +23,7 @@
         /// <value>The name of the rule type.</value>
         String RuleTypeName { get; }
 
-        /// <summary>Validates the property, Deriving classes must set the <seealso cref="FinalErrorMessage"/> if the validation fails.</summary>
+        /// <summary>Validates the property, Deriving classes must set the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
         /// <param name="target">The target instance to validate.</param>
         /// <param name="propertyName">Name of the property.</param>
         /// <returns>Returns <c>true</c> if the target property is valid; otherwise, <c>false</c>.</returns>

@@ -20,10 +20,10 @@
     /// <para>This class is typically used in applications where IDataErrorInfo can be utilized.  For example, WPF, UWP, Xamarin.Forms.</para>
     /// <para>The class provides a rich set of services for application entities or business objects.</para>
     /// </summary>
-    /// <seealso cref="Oceanware.Ocean.Infrastructure.ObservableObject" />
-    /// <seealso cref="System.ComponentModel.IDataErrorInfo" />
-    /// <seealso cref="Oceanware.Ocean.BusinessObject.ILoadable" />
-    /// <seealso cref="Oceanware.Ocean.ValidationRules.IRuleSet" />
+    /// <seealso cref="ObservableObject" />
+    /// <seealso cref="IDataErrorInfo" />
+    /// <seealso cref="ILoadable" />
+    /// <seealso cref="IRuleSet" />
     [Serializable]
     public abstract class BusinessEntityBase : ObservableObject, IDataErrorInfo, ILoadable, IRuleSet {
         static readonly Object _LockObject = new Object();
@@ -46,7 +46,7 @@
         /// Gets or sets the active rule set. Use this property to have a specific rule set checked in addition to all rules that are not assigned a specific rule set.  For example, if you set this property to, Insert; when the rules are checked, all general rules will be checked and the Insert rules will also be checked.
         /// </summary>
         /// <value>The active rule set.</value>
-        /// <exception cref="System.InvalidOperationException">Active rule set can not contain any pipe symbols. This is normally caused when a validation constant is passed that is for multiple rule sets and not a single rule set that this property requires.</exception>
+        /// <exception cref="InvalidOperationException">Active rule set can not contain any pipe symbols. This is normally caused when a validation constant is passed that is for multiple rule sets and not a single rule set that this property requires.</exception>
         [Browsable(false)]
         public String ActiveRuleSet {
             get {
@@ -71,7 +71,7 @@
         /// Gets a multi-line error message indicating what is wrong with this Object.  Every error in the Broken Rules collection is returned.
         /// </summary>
         /// <value>The error.</value>
-        /// <exception cref="System.InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
+        /// <exception cref="InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
         /// <exception cref="InvalidOperationException">if <see cref="BusinessEntityBase.IsLoading" /> is <c>true</c>.</exception>
         /// <returns>String that represents all broken rule descriptions for this instance.</returns>
         [Browsable(false)]
@@ -99,7 +99,7 @@
         /// Used by this base class internally as a method of getting the Instance Validation RulesManager.  This property uses lazy Object creation.
         /// </summary>
         /// <value>The instance validation rules manager.</value>
-        /// <exception cref="System.InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
+        /// <exception cref="InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
         /// <exception cref="InvalidOperationException">if <see cref="BusinessEntityBase.IsLoading" /> is <c>true</c>.</exception>
         /// <returns><see cref="ValidationRulesManager" /> for this instance.</returns>
         [JsonIgnore]
@@ -117,7 +117,7 @@
         /// Is this Object dirty? Have changes been made since the Object was loaded or a new Object was constructed. This is automatically kept track of by this base class.
         /// </summary>
         /// <value>The is dirty.</value>
-        /// <exception cref="System.InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
+        /// <exception cref="InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
         /// <returns><c>True</c> if this instance is dirty; otherwise <c>false</c>.</returns>
         [Browsable(false)]
         public Boolean IsDirty {
@@ -162,7 +162,7 @@
         /// Is this Object not valid? Property is exposed for data binding purposes so that consumers do not need to use a converter when requiring a negative true result.
         /// </summary>
         /// <value>The is not valid.</value>
-        /// <exception cref="System.InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
+        /// <exception cref="InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
         /// <returns><c>True</c> if this instance is not valid; otherwise <c>false</c>.</returns>
         [Browsable(false)]
         public Boolean IsNotValid {
@@ -179,7 +179,7 @@
         /// Is this Object valid?
         /// </summary>
         /// <value><c>true</c> if this instance is valid; otherwise, <c>false</c>.</value>
-        /// <exception cref="System.InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
+        /// <exception cref="InvalidOperationException">EndLoading never called after a BeginLoading call was made. No operations are permitted until EndLoading has been called.</exception>
         /// <returns><c>True</c> if this instance is valid; otherwise <c>false</c>.</returns>
         [Browsable(false)]
         public Boolean IsValid {
@@ -489,16 +489,16 @@
             this.IsDirty = false;
         }
 
-        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
+        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
         /// <param name="instance">The instance.</param>
         /// <param name="includeAllProperties">The include all properties.</param>
         /// <param name="sortOption">The sort option.</param>
         /// <param name="auditFormat">The audit format.</param>
         /// <param name="defaultValue">
-        /// If no class properties are decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
+        /// If no class properties are decorated with the <see cref="AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
         /// </param>
         /// <returns>IDictionary populated with properties and values.</returns>
-        /// <exception cref="T:System.ArgumentNullException">Thrown when dictionary is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when dictionary is null.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value includeAllProperties is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value sortOption is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value auditFormat is not defined.</exception>
@@ -506,17 +506,17 @@
             return AuditMessageFactory.AuditToIDictionary(this, includeAllProperties, sortOption, auditFormat, defaultValue);
         }
 
-        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
+        /// <summary>Populates the dictionary with property's name and value in the class for properties decorated with the <see cref="AuditAttribute"/>. If <c>IncludeAllProperties.Yes</c> then all properties will be included with or without the <c>AuditAttribute</c>.</summary>
         /// <param name="instance">The instance.</param>
         /// <param name="dictionary">Pass an IDictionary Object that needs to be populated. This could be the Data property of an exception Object that you want to populate, etc.</param>
         /// <param name="includeAllProperties">The include all properties.</param>
         /// <param name="sortOption">The sort option.</param>
         /// <param name="auditFormat">The audit format.</param>
         /// <param name="defaultValue">
-        /// If no class properties are decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
+        /// If no class properties are decorated with the <see cref="AuditAttribute"/> and the defaultValue is not null or an empty string, then a single entry will be added to the dictionary that is named 'DefaultValue' and will have the value of defaultValue.
         /// </param>
         /// <returns>IDictionary populated with properties and values.</returns>
-        /// <exception cref="T:System.ArgumentNullException">Thrown when dictionary is null.</exception>
+        /// <exception cref="ArgumentNullException">Thrown when dictionary is null.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value includeAllProperties is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value sortOption is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value auditFormat is not defined.</exception>
@@ -531,12 +531,12 @@
         /// <param name="sortOption">The sort option.</param>
         /// <param name="delimiter">The delimiter.</param>
         /// <param name="defaultValue">
-        /// If no class properties are decorated with the <see cref="T:Oceanware.Ocean.Audit.AuditAttribute"/> and the defaultValue is not null or an empty string, then the default value will be returned.
+        /// If no class properties are decorated with the <see cref="AuditAttribute"/> and the defaultValue is not null or an empty string, then the default value will be returned.
         /// </param>
         /// <returns>A String containing each property name, friendly name and value, separated by the delimiter and sorted by AuditAttribute.AuditSequence and then property name.</returns>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value includeAllProperties is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value sortOption is not defined.</exception>
-        /// <exception cref="T:Oceanware.Ocean.ArgumentNullEmptyWhiteSpaceException">Thrown when delimiter is null, empty, or white space.</exception>
+        /// <exception cref="ArgumentNullEmptyWhiteSpaceException">Thrown when delimiter is null, empty, or white space.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value auditFormat is not defined.</exception>
         public String AuditToString<T>(IncludeAllProperties includeAllProperties, SortOption sortOption, String delimiter = Constants.DefaultAuditMessageDelimiter, AuditFormat auditFormat = AuditFormat.Compact, String defaultValue = Constants.AuditDefaultValue) {
             return AuditMessageFactory.AuditToString(this, includeAllProperties, sortOption, delimiter, auditFormat, defaultValue);
