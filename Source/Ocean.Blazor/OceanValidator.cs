@@ -6,6 +6,11 @@
     using Oceanware.Ocean.Blazor.Properties;
     using Oceanware.Ocean.Rules;
 
+    /// <summary>
+    /// Class OceanValidator.
+    /// Derives from the <see cref="Microsoft.AspNetCore.Components.ComponentBase" />
+    /// </summary>
+    /// <seealso cref="Microsoft.AspNetCore.Components.ComponentBase" />
     public class OceanValidator : ComponentBase {
         const String StringTypeName = "String";
         readonly IModelRulesInvoker _modelRulesInvoker = new ModelRulesInvoker();

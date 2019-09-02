@@ -9,7 +9,7 @@
     <Authors>Karl Shifflett</Authors>
     <Company>Oceanware</Company>
     <Product>Oceanware Ocean Library</Product>
-    <Description>Ocean is a cross-platform library that provides API's for WPF, Blazor, Xamarin, UWP, WebApi, Silverlight, and .NET Class Libraries. Library has builds for .NET Framework, .NET Standard 2.0m and .NET Core 3.0.
+    <Description>Ocean is a cross-platform library that provides API's for WPF, Blazor, Xamarin, UWP, WebApi, Silverlight, and .NET Class Libraries. Library has builds for .NET Framework, .NET Standard 2.0 and .NET Core 3.0.
 
 Library does not require entities to implement any interfaces or based classes in order to be used in Blazor. For XAML based applications, a rich base class is provided that integrates with XAML binding stacks.</Description>
     <RepositoryUrl>https://github.com/OceanLibrary/Ocean</RepositoryUrl>
