@@ -11,10 +11,14 @@ The Ocean Library does not require entities to implement any interfaces or based
 [Ocean Library Documentation](https://oceanlibrary.github.io/Ocean-Documentation/)
 
 ## NuGet Packages
+- [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
+- [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/1.0.0)
+
 The Ocean Library is delivered two NuGet packages.  Oceanware.Ocean.Blazor is for Blazor UI projects. Oceanware.Ocean is the cross-platform library.
 
 ### Oceanware.Ocean.Blazor
 [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
+
 Provides the OceanValidator that is the Blazor middleware between the Ocean validation and case correction library and the Blazor UI.
 
 This NuGet package provides the OceanValidator that is used on Blazor Razor pages. This replaces the default
