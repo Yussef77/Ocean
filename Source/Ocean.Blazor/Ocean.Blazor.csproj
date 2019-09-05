@@ -11,7 +11,7 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryUrl>https://github.com/OceanLibrary/Ocean</RepositoryUrl>
     <PackageTags>validation;blazor</PackageTags>
-    <PackageIcon>oceanwarelogo-128x128.png</PackageIcon>
+    <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
     <PackageProjectUrl>https://github.com/OceanLibrary</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Karl Shifflett</Authors>
@@ -30,6 +30,13 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;IDE0001;IDE0002;IDE0003;IDE0049;IDE0022;IDE0032;IDE0040;IDE0017;IDE0016;CS0436;IDE0066;IDE0028;IDE1006;IDE0063</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Images\**" />
+    <Content Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
@@ -59,10 +66,6 @@
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Images\oceanwarelogo-128x128.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>

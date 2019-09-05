@@ -17,7 +17,7 @@ Library does not require entities to implement any interfaces or based classes i
     <PackageProjectUrl>https://github.com/OceanLibrary</PackageProjectUrl>
     <PackageTags>validation;blazor;silverlight;wpf;xamarin;uwp;</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageIcon>oceanwarelogo-128x128.png</PackageIcon>
+    <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
     <RootNamespace>Oceanware.Ocean</RootNamespace>
     <AssemblyName>Oceanware.Ocean</AssemblyName>
     <Version>1.2.0</Version>
@@ -37,6 +37,12 @@ Modified FormatText.ApplyCharacterCasing to make the PhoneExtension argument def
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <NoWarn>1701;1702;IDE0001;IDE0002;IDE0003;IDE0049;IDE0022;IDE0032;IDE0040;IDE0017;IDE0016;CS0436;IDE0066;IDE0028;IDE1006;;IDE0063</NoWarn>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Images\**" />
+    <EmbeddedResource Remove="Images\**" />
+    <None Remove="Images\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="companies.json" />
@@ -69,10 +75,6 @@ Modified FormatText.ApplyCharacterCasing to make the PhoneExtension argument def
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="Images\oceanwarelogo-128x128.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
