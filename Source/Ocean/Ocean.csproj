@@ -20,8 +20,11 @@ Library does not require entities to implement any interfaces or based classes i
     <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
     <RootNamespace>Oceanware.Ocean</RootNamespace>
     <AssemblyName>Oceanware.Ocean</AssemblyName>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageReleaseNotes>Add MultipleOfValidatorAttribute to validate that an integer value is a multiple of the designated value.
+Corrected bug in BusinessEntityBase that was preventing Instance Validation Rules from being evaluated.
+Added tests.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

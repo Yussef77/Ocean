@@ -8,15 +8,15 @@
     using System.Runtime.CompilerServices;
     using System.Runtime.Serialization;
     using System.Text;
+    using Newtonsoft.Json;
     using Oceanware.Ocean.Audit;
     using Oceanware.Ocean.Infrastructure;
     using Oceanware.Ocean.InputStringRules;
     using Oceanware.Ocean.Rules;
     using Oceanware.Ocean.ValidationRules;
-    using Newtonsoft.Json;
 
     /// <summary>
-    /// Class BusinessEntityBase. 
+    /// Class BusinessEntityBase.
     /// <para>This class is typically used in applications where IDataErrorInfo can be utilized.  For example, WPF, UWP, Xamarin.Forms.</para>
     /// <para>The class provides a rich set of services for application entities or business objects.</para>
     /// </summary>
@@ -411,12 +411,10 @@
             if (!this.IsLoading) {
                 this.IsDirty = true;
                 this.BeforePropertyChanged(propertyName);
-
                 currentValue = this.ModelRulesInvoker.FormatPropertyValueUsingCharacterCaseRule(this, propertyName, newValue);
-
                 CheckRulesForProperty(propertyName);
-
                 InternalRaisePropertyChanged(propertyName);
+                RaisePropertyChanged(nameof(Error));
             } else {
                 currentValue = newValue;
             }
@@ -458,6 +456,7 @@
                 currentValue = newValue;
                 CheckRulesForProperty(propertyName);
                 InternalRaisePropertyChanged(propertyName);
+                RaisePropertyChanged(nameof(Error));
             } else {
                 currentValue = newValue;
             }
