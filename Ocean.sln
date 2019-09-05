@@ -26,6 +26,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "Sandbox\Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFApp", "Sandbox\WPFApp\WPFApp.csproj", "{AF50BCAF-78B7-45DA-8B98-61613990A4AB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerSideApp", "Sandbox\BlazorServerSideApp\BlazorServerSideApp.csproj", "{3C7E1777-9714-4051-8C25-A422D38E858A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,10 @@ Global
 		{AF50BCAF-78B7-45DA-8B98-61613990A4AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF50BCAF-78B7-45DA-8B98-61613990A4AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF50BCAF-78B7-45DA-8B98-61613990A4AB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C7E1777-9714-4051-8C25-A422D38E858A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C7E1777-9714-4051-8C25-A422D38E858A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C7E1777-9714-4051-8C25-A422D38E858A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C7E1777-9714-4051-8C25-A422D38E858A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -62,6 +68,7 @@ Global
 		{F4E6BFBF-DFE5-4779-85BD-C2A59029CF27} = {291BBC04-6E76-4630-A16B-4D9EE453A645}
 		{8F3CDCD9-B6B6-427E-B103-0035A160FF0E} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
 		{AF50BCAF-78B7-45DA-8B98-61613990A4AB} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
+		{3C7E1777-9714-4051-8C25-A422D38E858A} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27893875-474A-4E45-AB05-766AA9E37259}

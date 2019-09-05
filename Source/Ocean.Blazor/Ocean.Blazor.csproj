@@ -19,7 +19,7 @@
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageReleaseNotes>Updated for Blazor Preview 9</PackageReleaseNotes>
   </PropertyGroup>
 

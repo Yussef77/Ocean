@@ -1,0 +1,69 @@
+﻿@page "/"
+@inherits IndexBase
+@using Model
+@using Oceanware.Ocean.ValidationRules
+@using Oceanware.Ocean.Blazor
+
+<h1>Customer Validation Test</h1>
+
+<EditForm Model="Customer" OnValidSubmit="HandleValidSubmit">
+    <OceanValidator />
+    <ValidationSummary />
+
+    <p>
+        <label for="ruleSet">Customer Object Rule Set</label>
+        <InputSelect T="String" Class="form-control" id="ruleSet" @bind-Value="Customer.ActiveRuleSet">
+            <option value="@ValidationConstants.Insert">@ValidationConstants.Insert</option>
+            <option value="@ValidationConstants.Update">@ValidationConstants.Update</option>
+            <option value="@AppValidationConstants.InReview">@AppValidationConstants.InReview</option>
+        </InputSelect>
+    </p>
+    <p>
+        <label for="firstName">First Name</label>
+        <InputText placeholder="First Name" maxlength="20" Class="form-control" id="firstName" @bind-Value="Customer.FirstName" />
+        <ValidationMessage For="(() => Customer.FirstName)" />
+    </p>
+    <p>
+        <label for="middleName">Middle Name</label>
+        <InputText placeholder="Middle Name" maxlength="15" Class="form-control" id="middleName" @bind-Value="Customer.MiddleName" />
+        <ValidationMessage For="(() => Customer.MiddleName)" />
+    </p>
+    <p>
+        <label for="lastName">Last Name</label>
+        <InputText placeholder="Last Name" maxlength="20" Class="form-control" id="lastName" @bind-Value="Customer.LastName" />
+        <ValidationMessage For="(() => Customer.LastName)" />
+    </p>
+    <p>
+        <label for="birthday">Birthday</label>
+        <InputDate T="DateTime" placeholder="Birthday" Class="form-control" id="birthday" @bind-Value="Customer.Birthday" />
+        <ValidationMessage For="(() => Customer.Birthday)" />
+    </p>
+    <p>
+        <label for="addressLineOne">Address Line One</label>
+        <InputText placeholder="Address Line One" maxlength="64" Class="form-control" id="addressLineOne" @bind-Value="Customer.AddressLineOne" />
+        <ValidationMessage For="(() => Customer.AddressLineOne)" />
+    </p>
+    <p>
+        <label for="bankName">Bank Name</label>
+        <InputText placeholder="Bank Name" maxlength="30" Class="form-control" id="bankName" @bind-Value="Customer.BankName" />
+        <ValidationMessage For="(() => Customer.BankName)" />
+    </p>
+    <p>
+        <label for="password">Password</label>
+        <InputText type="password" placeholder="Password" maxlength="20" Class="form-control" id="password" @bind-Value="Customer.Password" />
+        <ValidationMessage For="(() => Customer.Password)" />
+    </p>
+    <p>
+        <label for="confirmPassword">Confirm Password</label>
+        <InputText type="password" placeholder="Confirm Password" maxlength="20" Class="form-control" id="confirmPassword" @bind-Value="Customer.PasswordConfirm" />
+        <ValidationMessage For="(() => Customer.PasswordConfirm)" />
+    </p>
+
+    <p>
+        <label for="evaluation">Evaluation</label>
+        <InputText placeholder="Evaluation" maxlength="100" Class="form-control" id="evaluation" @bind-Value="Customer.Evaluation" />
+        <ValidationMessage For="(() => Customer.Evaluation)" />
+    </p>
+
+    <button type="submit">Submit</button>
+</EditForm>

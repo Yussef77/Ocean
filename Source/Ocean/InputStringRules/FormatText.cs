@@ -21,7 +21,7 @@ namespace Oceanware.Ocean.InputStringRules {
         /// <returns>String case corrected and optionally formatted.</returns>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value characterCase is not defined.</exception>
         /// <exception cref="InvalidEnumArgumentException">Thrown when enum value phoneExtension is not defined.</exception>
-        public static String ApplyCharacterCasing(String inputString, CharacterCasing characterCase, PhoneExtension phoneExtension) {
+        public static String ApplyCharacterCasing(String inputString, CharacterCasing characterCase, PhoneExtension phoneExtension = PhoneExtension.Keep) {
             if (!Enum.IsDefined(typeof(CharacterCasing), characterCase)) {
                 throw new InvalidEnumArgumentException(nameof(characterCase), (Int32)characterCase, typeof(CharacterCasing));
             }

@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Source\Ocean.Blazor\Ocean.Blazor.csproj" />
+    <ProjectReference Include="..\..\Source\Ocean\Ocean.csproj" />
+  </ItemGroup>
+
+</Project>

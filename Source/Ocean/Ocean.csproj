@@ -25,7 +25,9 @@ Library does not require entities to implement any interfaces or based classes i
     <PackageReleaseNotes>Add MultipleOfValidatorAttribute to validate that an integer value is a multiple of the designated value.
 Corrected bug in BusinessEntityBase that was preventing Instance Validation Rules from being evaluated.
 Added tests.
-Modified BusinessEntityBase to raise property changed for the Error property after an entity property is changed.</PackageReleaseNotes>
+Modified BusinessEntityBase to raise property changed for the Error property after an entity property is changed.
+
+Modified FormatText.ApplyCharacterCasing to make the PhoneExtension argument default to PhoneExtension.Keep.  This was done to make using the library FormatText easier.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
