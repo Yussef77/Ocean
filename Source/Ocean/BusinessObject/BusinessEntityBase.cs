@@ -25,7 +25,7 @@
     /// <seealso cref="ILoadable" />
     /// <seealso cref="IRuleSet" />
     [Serializable]
-    public abstract class BusinessEntityBase : ObservableObject, IDataErrorInfo, ILoadable, IRuleSet {
+    public abstract class BusinessEntityBase : ObservableObject, IDataErrorInfo, ILoadable, IRuleSet, ISupportInstanceValidationRules {
         static readonly Object _LockObject = new Object();
         String _activeRuleSet = ValidationConstants.Insert;
 

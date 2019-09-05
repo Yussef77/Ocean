@@ -322,6 +322,15 @@ namespace Oceanware.Ocean {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Multiple of validator requires it be applied to an integer property..
+        /// </summary>
+        public static string MultipleOfValidatorRequirsItBeAppliedToAnIntegerProperty {
+            get {
+                return ResourceManager.GetString("MultipleOfValidatorRequirsItBeAppliedToAnIntegerProperty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} must be greater than or equal to {1}..
         /// </summary>
         public static string MustBeEqualToOrGreaterThanFormat {
@@ -685,6 +694,15 @@ namespace Oceanware.Ocean {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} value {1} is not divisible by {2}..
+        /// </summary>
+        public static string ValueIsNotDivisibleByFormat {
+            get {
+                return ResourceManager.GetString("ValueIsNotDivisibleByFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Value is null, empty, or white space..
         /// </summary>
         public static string ValueIsNullEmptyOrWhiteSpace {
@@ -708,6 +726,15 @@ namespace Oceanware.Ocean {
         public static string ValueMustBeGreaterThanDateTimeMinDateFormat {
             get {
                 return ResourceManager.GetString("ValueMustBeGreaterThanDateTimeMinDateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value must be greater than one..
+        /// </summary>
+        public static string ValueMustBeGreaterThanOne {
+            get {
+                return ResourceManager.GetString("ValueMustBeGreaterThanOne", resourceCulture);
             }
         }
         
