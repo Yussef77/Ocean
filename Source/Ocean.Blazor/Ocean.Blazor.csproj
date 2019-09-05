@@ -11,7 +11,7 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryUrl>https://github.com/OceanLibrary/Ocean</RepositoryUrl>
     <PackageTags>validation;blazor</PackageTags>
-    <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
+    <PackageIcon>oceanwarelogo-128x128.png</PackageIcon>
     <PackageProjectUrl>https://github.com/OceanLibrary</PackageProjectUrl>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Karl Shifflett</Authors>
@@ -19,6 +19,8 @@
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>Updated for Blazor Preview 9</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -58,4 +60,9 @@
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Images\oceanwarelogo-128x128.png" Pack="true" PackagePath="" />
+  </ItemGroup>
+
 </Project>

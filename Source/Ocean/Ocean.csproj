@@ -17,10 +17,10 @@ Library does not require entities to implement any interfaces or based classes i
     <PackageProjectUrl>https://github.com/OceanLibrary</PackageProjectUrl>
     <PackageTags>validation;blazor;silverlight;wpf;xamarin;uwp;</PackageTags>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
+    <PackageIcon>oceanwarelogo-128x128.png</PackageIcon>
     <RootNamespace>Oceanware.Ocean</RootNamespace>
     <AssemblyName>Oceanware.Ocean</AssemblyName>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageReleaseNotes>Add MultipleOfValidatorAttribute to validate that an integer value is a multiple of the designated value.
 Corrected bug in BusinessEntityBase that was preventing Instance Validation Rules from being evaluated.
@@ -67,6 +67,10 @@ Modified BusinessEntityBase to raise property changed for the Error property aft
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Images\oceanwarelogo-128x128.png" Pack="true" PackagePath="" />
   </ItemGroup>
 
 </Project>
