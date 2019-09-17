@@ -19,8 +19,8 @@
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.2.0</Version>
-    <PackageReleaseNotes>Updated for Blazor Preview 9</PackageReleaseNotes>
+    <Version>1.3.0</Version>
+    <PackageReleaseNotes>Updated for Blazor RC1</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -207,10 +207,21 @@
             Assert.True(_sut.RowNumber == ExpectedRowNumber);
         }
 
+        [Fact]
+        public void WhenNullPassedToStringPropertyNoExceptionIsThrown() {
+            // arrange
+
+            // act
+            _sut.FirstName = null;
+
+            // assert
+            Assert.Equal("First Name null value is not allowed.", _sut[nameof(_sut.FirstName)]);
+        }
+
         class Customer : BusinessEntityBase {
             String _firstName = String.Empty;
-
             String _lastName;
+
             public Boolean AddInstanceBusinessValidationRulesCalled { get; private set; }
 
             public Boolean AddSharedBusinessValidationRulesCalled { get; private set; }

@@ -411,7 +411,11 @@
             if (!this.IsLoading) {
                 this.IsDirty = true;
                 this.BeforePropertyChanged(propertyName);
-                currentValue = this.ModelRulesInvoker.FormatPropertyValueUsingCharacterCaseRule(this, propertyName, newValue);
+                if (newValue != null) {
+                    currentValue = this.ModelRulesInvoker.FormatPropertyValueUsingCharacterCaseRule(this, propertyName, newValue);
+                } else {
+                    currentValue = newValue;
+                }
                 CheckRulesForProperty(propertyName);
                 InternalRaisePropertyChanged(propertyName);
                 RaisePropertyChanged(nameof(Error));
