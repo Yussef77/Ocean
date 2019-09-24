@@ -5,16 +5,16 @@
     using Oceanware.Ocean.ValidationRules;
     using Oceanware.Ocean.ValidationRules.InstanceRules;
 
-public class Customer : IRuleSet, ISupportInstanceValidationRules {
+    public class Customer : IRuleSet, ISupportInstanceValidationRules {
 
-    [field: NonSerialized]
-    ValidationRulesManager _instanceValidationRulesManager;
+        [field: NonSerialized]
+        ValidationRulesManager _instanceValidationRulesManager;
 
-    public String ActiveRuleSet { get; set; }
+        public String ActiveRuleSet { get; set; }
 
-    [CharacterFormatting(CharacterCasing.ProperName, RemoveSpace = RemoveSpace.MultipleSpaces)]
-    [StringLengthValidator(5, 64, RuleSet = ValidationConstants.InsertUpdate)]
-    public String AddressLineOne { get; set; } = String.Empty;
+        [CharacterFormatting(CharacterCasing.ProperName, RemoveSpace = RemoveSpace.MultipleSpaces)]
+        [StringLengthValidator(5, 64, RuleSet = ValidationConstants.InsertUpdate)]
+        public String AddressLineOne { get; set; } = String.Empty;
 
         [CharacterFormatting(CharacterCasing.ProperName, RemoveSpace = RemoveSpace.MultipleSpaces)]
         [StringLengthValidator(5, 30, RuleSet = ValidationConstants.InsertUpdate)]
