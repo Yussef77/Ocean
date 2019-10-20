@@ -9,7 +9,7 @@
     <AssemblyOriginatorKeyFile>Oceanware.Ocean.snk</AssemblyOriginatorKeyFile>
     <Description>Provides the OceanValidator that is the Blazor middleware between the Ocean validation and case correction library and the Blazor UI. This NuGet package provides the OceanValidator that is used on Blazor Razor pages. This replaces the default DataAnnotations validation library validator.
 
-Package also include the OceanNumericInput component, a replacement for the Blazor NumericInput.</Description>
+Package also include the OceanNumericInput component, a replacement for the Blazor InputNumber.</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryUrl>https://github.com/OceanLibrary/Ocean</RepositoryUrl>
     <PackageTags>validation;blazor</PackageTags>
@@ -22,7 +22,7 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
     <Version>1.5.0</Version>
-    <PackageReleaseNotes>Added the OceanNumericInput is a replacement for the stock NumericInput component.
+    <PackageReleaseNotes>Added the OceanNumericInput is a replacement for the stock InputNumber component.
 
 This component supports binding to Int16, Int16?, Int32, Int32?, Int64, Int64?, Single, Single?, Double, Double?, Decimal, and Decimal? data types.
 
