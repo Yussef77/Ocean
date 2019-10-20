@@ -1,5 +1,5 @@
-﻿<Project Sdk="MSBuild.Sdk.Extras">
-
+﻿<Project Sdk="MSBuild.Sdk.Extras/2.0.54">
+  
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netcoreapp3.0;net45</TargetFrameworks>
     <SignAssembly>true</SignAssembly>
