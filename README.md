@@ -54,6 +54,16 @@ Package: [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Ocean
 
 Provides the `OceanValidator` that is the Blazor middleware between the Ocean validation and case correction library, and the Blazor UI. The `OceanValidator` replaces the `DataAnnotations` validation library validator.
 
+Provides the `OceanNumericInput` component.
+
+- Supports binding to Int16, Int16?, Int32, Int32?, Int64, Int64?, Single, Single?, Double, Double?, Decimal, and Decimal? data types.
+- Has a FormatString property.
+- Prevents users from entering invalid numeric values and values with too many digits after the digits separator.
+- String formatting of the entered values uses the culture-specific numeric separator, digits separator, and negative sign.
+- Always uses CurrentCulture when performing string format operations.
+- Allows entering and displaying a number separator. (the stock Blazor InputNumber component does not as it uses the HTML 5 input with type="number" that prevents a comma from being entered.
+- Easily enable mobile browser numeric popup keyboard, set the BrowserInputMode property to Decimal or Numeric.
+
 #### Oceanware.Ocean.Blazor Requirements
 .NET Core 3.0 RTM, and latest Visual Studio 2019.
 
