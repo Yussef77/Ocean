@@ -1,23 +1,13 @@
 ﻿namespace Oceanware.Ocean.ValidationRules {
 
     using System;
-    using System.ComponentModel;
     using System.Linq;
     using System.Reflection;
 
-    /// <summary>Class BankRoutingNumberValidatorAttribute. This class cannot be inherited. Used to validate string properties that represent a bank routing number.
-    /// Derives from the <see cref="OptionallyRequiredBaseValidatorAttribute"/></summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
-    public sealed class BankRoutingNumberValidatorAttribute : OptionallyRequiredBaseValidatorAttribute {
+    public class BooleanRequiredValidatorAttribute : BaseValidatorAttribute {
 
-        /// <summary>Initializes a new instance of the <see cref="BankRoutingNumberValidatorAttribute"/> class.</summary>
-        /// <param name="requiredEntry">The required entry.</param>
-        /// <exception cref="InvalidEnumArgumentException">Thrown when enum value requiredEntry is not defined.</exception>
-        public BankRoutingNumberValidatorAttribute(RequiredEntry requiredEntry = RequiredEntry.Yes) {
-            if (!Enum.IsDefined(typeof(RequiredEntry), requiredEntry)) {
-                throw new InvalidEnumArgumentException(nameof(requiredEntry), (Int32)requiredEntry, typeof(RequiredEntry));
-            }
-            base.RequiredEntry = requiredEntry;
+        public BooleanRequiredValidatorAttribute() {
         }
 
         /// <summary>Validates the string property. Error message is set in the <seealso cref="BaseValidatorAttribute.FinalErrorMessage"/> if the validation fails.</summary>
@@ -47,7 +37,7 @@
 
             PropertyInfo propertyInfo = target.GetType().GetProperty(propertyName);
 
-            if (!(propertyInfo.PropertyType == typeof(String))) {
+            if (!(propertyInfo.PropertyType == typeof(Boolean) || propertyInfo.PropertyType == typeof(Boolean?))) {
                 throw new InvalidOperationException(Strings.BankRoutingNumberValidationRuleCanOnlyBeAppliedToStringProperties);
             }
 

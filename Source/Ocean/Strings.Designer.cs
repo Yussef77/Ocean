@@ -88,6 +88,16 @@ namespace Oceanware.Ocean {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Boolean required validation rule can only be applied to Boolean or Boolean? type properties..
+        /// </summary>
+        public static string BooleanRequiredValidationRuleCanOnlyBeAppliedToBooleanOrNullableBooleanProperties {
+            get {
+                return ResourceManager.GetString("BooleanRequiredValidationRuleCanOnlyBeAppliedToBooleanOrNullableBooleanProperties" +
+                        "", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} {1} is not a valid credit card number..
         /// </summary>
         public static string CreditCardNumberIsNotAValidCreditCardNumberFormat {

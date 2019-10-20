@@ -1,10 +1,9 @@
 ﻿@page "/"
-@inherits IndexBase
-@using Model
+@inherits ValidationDemoBase
 @using Oceanware.Ocean.ValidationRules
 @using Oceanware.Ocean.Blazor
 
-<h1>Customer Validation Test</h1>
+<h1>Validation and Case Correction Demo</h1>
 
 <EditForm Model="Customer" OnValidSubmit="HandleValidSubmit">
     <OceanValidator />

@@ -26,7 +26,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp", "Sandbox\Conso
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFApp", "Sandbox\WPFApp\WPFApp.csproj", "{AF50BCAF-78B7-45DA-8B98-61613990A4AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorServerSideApp", "Sandbox\BlazorServerSideApp\BlazorServerSideApp.csproj", "{3C7E1777-9714-4051-8C25-A422D38E858A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerSideApp", "Sandbox\BlazorServerSideApp\BlazorServerSideApp.csproj", "{3C7E1777-9714-4051-8C25-A422D38E858A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -63,6 +63,7 @@ namespace Oceanware.Ocean.InputStringRules {
                 _instance.Add(new CharacterCasingCheck(" Llc ", " LLC "));
                 _instance.Add(new CharacterCasingCheck(" Lc ", " LC "));
                 _instance.Add(new CharacterCasingCheck(" Lc. ", " LC. "));
+                _instance.Add(new CharacterCasingCheck("Us Bank ", "US Bank "));
                 _instance.Add(new CharacterCasingCheck("Wpf", "WPF"));
             }
 

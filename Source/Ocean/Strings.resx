@@ -126,6 +126,9 @@
   <data name="BankRoutingNumberValidationRuleCanOnlyBeAppliedToStringProperties" xml:space="preserve">
     <value>Bank routing number validation rule can only be applied to String properties.</value>
   </data>
+  <data name="BooleanRequiredValidationRuleCanOnlyBeAppliedToBooleanOrNullableBooleanProperties" xml:space="preserve">
+    <value>Boolean required validation rule can only be applied to Boolean or Boolean? type properties.</value>
+  </data>
   <data name="CreditCardNumberIsNotAValidCreditCardNumberFormat" xml:space="preserve">
     <value>{0} {1} is not a valid credit card number.</value>
   </data>
