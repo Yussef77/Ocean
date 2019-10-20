@@ -18,17 +18,17 @@
     <h3>Binding To Non-Nullable Properties</h3>
     <p>
         <label for="age">Age (Int16, default 32, max length 3, validation greater than zero)</label>
-        <OceanNumericInput placeholder="Age" maxlength="3" Class="form-control" id="age" @bind-Value="Numerics.Age" />
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" placeholder="Age" maxlength="3" Class="form-control" id="age" @bind-Value="Numerics.Age" />
         <ValidationMessage For="(() => Numerics.Age)" />
     </p>
     <p>
         <label for="count">Count (Int32, default 5000, max length 10, FormatString N0)</label>
-        <OceanNumericInput FormatString="N0" placeholder="Count" maxlength="10" Class="form-control" id="count" @bind-Value="Numerics.Count" />
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N0" placeholder="Count" maxlength="10" Class="form-control" id="count" @bind-Value="Numerics.Count" />
         <ValidationMessage For="(() => Numerics.Count)" />
     </p>
     <p>
         <label for="bigCount">BigCount (Int64, default 104587, max length 12, FormatString N0)</label>
-        <OceanNumericInput FormatString="N0" placeholder="Big Count" maxlength="12" Class="form-control" id="bigCount" @bind-Value="Numerics.BigCount" />
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N0" placeholder="Big Count" maxlength="12" Class="form-control" id="bigCount" @bind-Value="Numerics.BigCount" />
         <ValidationMessage For="(() => Numerics.BigCount)" />
     </p>
     <p>
@@ -37,7 +37,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
             </div>
-            <OceanNumericInput FormatString="N2" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="extendedPrice" @bind-Value="Numerics.ExtendedPrice" />
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N2" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="extendedPrice" @bind-Value="Numerics.ExtendedPrice" />
         </div>
         <ValidationMessage For="(() => Numerics.ExtendedPrice)" />
     </p>
@@ -47,7 +47,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
             </div>
-            <OceanNumericInput FormatString="N" NumberOfDecimalPlaces="2" placeholder="Price" maxlength="10" Class="form-control" id="price" @bind-Value="Numerics.Price" />
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Price" maxlength="10" Class="form-control" id="price" @bind-Value="Numerics.Price" />
         </div>
         <ValidationMessage For="(() => Numerics.Price)" />
     </p>
@@ -57,7 +57,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
             </div>
-            <OceanNumericInput FormatString="N" NumberOfDecimalPlaces="2" placeholder="Revenue" maxlength="10" Class="form-control" id="revenue" @bind-Value="Numerics.Revenue" />
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Revenue" maxlength="10" Class="form-control" id="revenue" @bind-Value="Numerics.Revenue" />
         </div>
         <ValidationMessage For="(() => Numerics.Revenue)" />
     </p>
@@ -66,17 +66,17 @@
     <h3>Binding To Nullable Properties</h3>
     <p>
         <label for="possibleAge">Age (Int16?, default null, max length 3, validation if supplied greater than zero)</label>
-        <OceanNumericInput placeholder="Age" maxlength="3" Class="form-control" id="possibleAge" @bind-Value="Numerics.PossibleAge" />
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" placeholder="Age" maxlength="3" Class="form-control" id="possibleAge" @bind-Value="Numerics.PossibleAge" />
         <ValidationMessage For="(() => Numerics.PossibleAge)" />
     </p>
     <p>
         <label for="possibleCount">Count (Int32?, default null, max length 10, FormatString N0)</label>
-        <OceanNumericInput FormatString="N0" placeholder="Count" maxlength="10" Class="form-control" id="possibleCount" @bind-Value="Numerics.PossibleCount" />
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N0" placeholder="Count" maxlength="10" Class="form-control" id="possibleCount" @bind-Value="Numerics.PossibleCount" />
         <ValidationMessage For="(() => Numerics.PossibleCount)" />
     </p>
     <p>
         <label for="possibleBigCount">BigCount (Int64?, default null, max length 12, FormatString N0)</label>
-        <OceanNumericInput FormatString="N0" placeholder="Big Count" maxlength="12" Class="form-control" id="possibleBigCount" @bind-Value="Numerics.PossibleBigCount" />
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N0" placeholder="Big Count" maxlength="12" Class="form-control" id="possibleBigCount" @bind-Value="Numerics.PossibleBigCount" />
         <ValidationMessage For="(() => Numerics.PossibleBigCount)" />
     </p>
     <p>
@@ -85,7 +85,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
             </div>
-            <OceanNumericInput FormatString="N" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="possibleExtendedPrice" @bind-Value="Numerics.PossibleExtendedPrice" />
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="possibleExtendedPrice" @bind-Value="Numerics.PossibleExtendedPrice" />
         </div>
         <ValidationMessage For="(() => Numerics.PossibleExtendedPrice)" />
     </p>
@@ -95,7 +95,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
             </div>
-            <OceanNumericInput FormatString="N" NumberOfDecimalPlaces="2" placeholder="Price" maxlength="10" Class="form-control" id="possiblePrice" @bind-Value="Numerics.PossiblePrice" />
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Price" maxlength="10" Class="form-control" id="possiblePrice" @bind-Value="Numerics.PossiblePrice" />
         </div>
         <ValidationMessage For="(() => Numerics.PossiblePrice)" />
     </p>
@@ -105,7 +105,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
             </div>
-            <OceanNumericInput FormatString="N" NumberOfDecimalPlaces="2" placeholder="Revenue" maxlength="10" Class="form-control" id="possibleRevenue" @bind-Value="Numerics.PossibleRevenue" />
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Revenue" maxlength="10" Class="form-control" id="possibleRevenue" @bind-Value="Numerics.PossibleRevenue" />
         </div>
         <ValidationMessage For="(() => Numerics.PossibleRevenue)" />
     </p>

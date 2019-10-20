@@ -20,11 +20,9 @@ Library does not require entities to implement any interfaces or based classes i
     <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
     <RootNamespace>Oceanware.Ocean</RootNamespace>
     <AssemblyName>Oceanware.Ocean</AssemblyName>
-    <Version>1.5.0</Version>
+    <Version>1.6.0</Version>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <PackageReleaseNotes>Added BooleanRequiredValidatorAttribute which when applied to a Boolean property, requires the value be true.  Used to require a user to accept terms, etc. 
-
-Fixed several error messages that did not show the property name.</PackageReleaseNotes>
+    <PackageReleaseNotes>No changes, verisioned package to stay in sync with Ocean.Blazer.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

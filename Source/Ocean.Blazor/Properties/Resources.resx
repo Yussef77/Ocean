@@ -129,6 +129,9 @@
   <data name="TypeIsNotASupportedNumericTypeFormat" xml:space="preserve">
     <value>The type {0} is not a supported numeric type.</value>
   </data>
+  <data name="UnableToParseInputIntoANumberFormat" xml:space="preserve">
+    <value>{0} unable to parse the input into a valid number. Please check your input.</value>
+  </data>
   <data name="ValueMustBeEqualToOrGreaterThanZeroFormat" xml:space="preserve">
     <value>{0} must be equal to or greater than zero. Value was {1}.</value>
   </data>

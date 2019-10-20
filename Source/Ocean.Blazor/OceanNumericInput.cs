@@ -16,6 +16,18 @@
         readonly Boolean _isWholeNumberOnly;
 
         /// <summary>
+        /// <para>
+        /// Gets or sets the browser input mode. After setting PLEASE test on mobile devices.
+        /// </para>
+        /// <para>
+        /// When <c>Decimal</c> or <c>Numeric</c>, enables mobile keyboards to popup when the field is accessed on devices.
+        /// </para>
+        /// </summary>
+        /// <value>The browser input mode.</value>
+        [Parameter]
+        public BrowserInputMode BrowserInputMode { get; set; }
+
+        /// <summary>
         /// Gets or sets the format string.
         /// </summary>
         /// <value>The format string.</value>
@@ -82,6 +94,12 @@
             builder.AddAttribute(3, "class", CssClass);
             builder.AddAttribute(4, "value", BindConverter.FormatValue(CurrentValueAsString));
             builder.AddAttribute(5, "onchange", EventCallback.Factory.CreateBinder<String>(this, __value => CurrentValueAsString = __value, CurrentValueAsString));
+            if (this.BrowserInputMode == BrowserInputMode.Decimal) {
+                builder.AddAttribute(6, "inputmode", "decimal");
+            } else if (this.BrowserInputMode == BrowserInputMode.Numeric) {
+                builder.AddAttribute(6, "inputmode", "numeric");
+            }
+
             builder.CloseElement();
         }
 
@@ -197,15 +215,20 @@
                 }
             }
 
-            if (BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out result)) {
-                validationErrorMessage = null;
-                return true;
-            } else {
+            try {
+                if (BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out result)) {
+                    validationErrorMessage = null;
+                    return true;
+                }
                 if (_isWholeNumberOnly) {
                     validationErrorMessage = String.Format(WholeNumberParsingErrorMessage, FieldIdentifier.FieldName.GetWords());
                 } else {
                     validationErrorMessage = String.Format(ParsingErrorMessage, FieldIdentifier.FieldName.GetWords());
                 }
+                return false;
+            } catch {
+                validationErrorMessage = String.Format(Resources.UnableToParseInputIntoANumberFormat, FieldIdentifier.FieldName.GetWords());
+                result = default;
                 return false;
             }
         }

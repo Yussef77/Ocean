@@ -97,6 +97,15 @@ namespace Oceanware.Ocean.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} unable to parse the input into a valid number. Please check your input..
+        /// </summary>
+        internal static string UnableToParseInputIntoANumberFormat {
+            get {
+                return ResourceManager.GetString("UnableToParseInputIntoANumberFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} must be equal to or greater than zero. Value was {1}..
         /// </summary>
         internal static string ValueMustBeEqualToOrGreaterThanZeroFormat {

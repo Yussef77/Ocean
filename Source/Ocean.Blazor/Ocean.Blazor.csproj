@@ -21,14 +21,8 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.5.0</Version>
-    <PackageReleaseNotes>Added the OceanNumericInput is a replacement for the stock InputNumber component.
-
-This component supports binding to Int16, Int16?, Int32, Int32?, Int64, Int64?, Single, Single?, Double, Double?, Decimal, and Decimal? data types.
-
-This component has a FormatString property, set as required.
-
-Displays culture-specific numeric separator, digits separator, and negative sign.</PackageReleaseNotes>
+    <Version>1.6.0</Version>
+    <PackageReleaseNotes>Added support for setting the BrowserInputMode on the component so that mobile browsers will display the popup numeric keypad.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
