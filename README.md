@@ -12,13 +12,13 @@ The Ocean Library is a cross-platform library that provides API's for WPF, Blazo
 See the `SetPropertyCodeSnippets.zip` file for two code snippets for easily adding entity properties to entity classes that derive from `BusinessEntityBase`.
 
 ## NuGet Packages
-- Package: [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/1.0.0)
-- Package: [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
+- Package: [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/)
+- Package: [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/)
 
 ### Oceanware.Ocean
 `Oceanware.Ocean` is the cross-platform library.
 
-Package: [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/1.0.0)
+Package: [Oceanware.Ocean](https://www.nuget.org/packages/Oceanware.Ocean/)
 
 Library Features:
 
@@ -50,12 +50,12 @@ Library Features:
 ### Oceanware.Ocean.Blazor
 `Oceanware.Ocean.Blazor` is for Blazor UI projects.
 
-Package: [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/1.0.0)
+Package: [Oceanware.Ocean.Blazor Validator](https://www.nuget.org/packages/Oceanware.Ocean.Blazor/)
 
 Provides the `OceanValidator` that is the Blazor middleware between the Ocean validation and case correction library, and the Blazor UI. The `OceanValidator` replaces the `DataAnnotations` validation library validator.
 
 #### Oceanware.Ocean.Blazor Requirements
-.NET Core 3, Preview 8 and latest Visual Studio 2019 Preview.
+.NET Core 3.0 RTM, and latest Visual Studio 2019.
 
 ## History
 Back in 2008 I wrote a Code Project article about my initial WPF library for line-of-business applications. 
