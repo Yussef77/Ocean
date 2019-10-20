@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.InputStringRulesTests {
+﻿namespace Ocean.Tests.InputStringRulesTests {
 
     using System;
     using Oceanware.Ocean.Rules;

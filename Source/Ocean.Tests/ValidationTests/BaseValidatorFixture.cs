@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
     using Oceanware.Ocean.ValidationRules;
@@ -123,6 +123,7 @@
         }
 
         class Customer : IRuleSet {
+
             public String ActiveRuleSet { get; set; }
 
             [StringLengthValidator(5, ErrorMessageResourceName = "ValueMessagePropertyNameFormat", ErrorMessageResourceType = typeof(Properties.Resources), ResourceErrorMessageFormatStringArgument = ResourceErrorMessageFormatStringArgument.ValuePropertyName)]

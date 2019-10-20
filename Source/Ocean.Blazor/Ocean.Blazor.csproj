@@ -19,8 +19,14 @@
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.4.0</Version>
-    <PackageReleaseNotes>Updated for .NET Core 3 RTM Blazor</PackageReleaseNotes>
+    <Version>1.5.0</Version>
+    <PackageReleaseNotes>Added the OceanNumericInput is a replacement for the stock NumericInput component.
+
+This component supports binding to Int16, Int16?, Int32, Int32?, Int64, Int64?, Single, Single?, Double, Double?, Decimal, and Decimal? data types.
+
+This component has a FormatString property, set as required.
+
+Displays culture-specific numeric separator, digits separator, and negative sign.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

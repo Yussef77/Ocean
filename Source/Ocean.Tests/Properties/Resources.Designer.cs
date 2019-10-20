@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Oceanware.Ocean.Tests.Properties {
+namespace Ocean.Tests.Properties {
     using System;
     
     

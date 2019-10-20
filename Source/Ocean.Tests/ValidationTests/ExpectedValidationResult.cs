@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     public enum ExpectedValidationResult {
         Fail,

@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ClonerTests {
+﻿namespace Ocean.Tests.ClonerTests {
 
     using System;
     using Oceanware.Ocean.Infrastructure;

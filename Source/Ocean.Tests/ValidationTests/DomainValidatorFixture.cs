@@ -1,6 +1,7 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
+    using Oceanware.Ocean.Extensions;
     using Oceanware.Ocean.ValidationRules;
     using Xunit;
 
@@ -32,8 +33,9 @@
             // arrange
             _sut.Role = value;
             const String TargetPropertyName = nameof(_sut.Role);
-            String ExpectedMessage = "Value was null, DBNull, or empty string but was required.";
-
+            var targetPropertyNameFriendlyName = nameof(_sut.Role).GetWords();
+            String ExpectedMessage = $"{targetPropertyNameFriendlyName} was null, DBNull, or empty string but was required.";
+            
             // act assert
             base.RunValidation(TargetPropertyName, _sut, ExpectedMessage);
         }

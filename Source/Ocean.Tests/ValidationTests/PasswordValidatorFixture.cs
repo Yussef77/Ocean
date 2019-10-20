@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
     using Oceanware.Ocean.ValidationRules;
@@ -35,8 +35,8 @@
         [InlineData("123456U$", "Password Two must contain at least one lower case character", ExpectedValidationResult.Fail)]
         [InlineData("123456u$", "Password Two must contain at least one upper case character", ExpectedValidationResult.Fail)]
         [InlineData("abcZ&&&&!", "Password Two must contain at least one digit character", ExpectedValidationResult.Fail)]
-        [InlineData("", "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
-        [InlineData(null, "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData("", "Password Two was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData(null, "Password Two was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
         [InlineData("$2U4a", "Password Two minimum length is 6", ExpectedValidationResult.Fail)]
         [InlineData("123456789012345678901aZ&", "Password Two is longer than 20", ExpectedValidationResult.Fail)]
         public void WhenValidatingPasswordEnsureCorrectTestsResults(String value, String expectedMessage, ExpectedValidationResult expectedValidationResult) {
@@ -56,8 +56,8 @@
         [InlineData("123456u$", "Password One must contain at least one upper case character", ExpectedValidationResult.Fail)]
         [InlineData("abcZ&&&&!", "Password One must contain at least one digit character", ExpectedValidationResult.Fail)]
         [InlineData("abcZ1111dadf", "Password One must contain at least one of these special characters !@#$*^%&()-_+|", ExpectedValidationResult.Fail)]
-        [InlineData("", "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
-        [InlineData(null, "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData("", "Password One was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData(null, "Password One was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
         [InlineData("$2U4a", "Password One minimum length is 8", ExpectedValidationResult.Fail)]
         [InlineData("123456789012345678901aZ&", "Password One is longer than 20", ExpectedValidationResult.Fail)]
         public void WhenValidatingStrongPasswordEnsureCorrectTestsResults(String value, String expectedMessage, ExpectedValidationResult expectedValidationResult) {
@@ -74,8 +74,8 @@
         [InlineData("abcdef", "", ExpectedValidationResult.Pass)]
         [InlineData("123456z", "", ExpectedValidationResult.Pass)]
         [InlineData("123456U", "Password Four must contain at least one lower case character", ExpectedValidationResult.Fail)]
-        [InlineData("", "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
-        [InlineData(null, "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData("", "Password Four was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData(null, "Password Four was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
         [InlineData("12U4a", "Password Four minimum length is 6", ExpectedValidationResult.Fail)]
         [InlineData("123456789012345678901Za", "Password Four is longer than 20", ExpectedValidationResult.Fail)]
         public void WhenValidatingVeryWeakPasswordEnsureCorrectTestsResults(String value, String expectedMessage, ExpectedValidationResult expectedValidationResult) {
@@ -93,8 +93,8 @@
         [InlineData("123456zA", "", ExpectedValidationResult.Pass)]
         [InlineData("123456U", "Password Three must contain at least one lower case character", ExpectedValidationResult.Fail)]
         [InlineData("123456u", "Password Three must contain at least one upper case character", ExpectedValidationResult.Fail)]
-        [InlineData("", "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
-        [InlineData(null, "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData("", "Password Three was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData(null, "Password Three was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
         [InlineData("12U4a", "Password Three minimum length is 6", ExpectedValidationResult.Fail)]
         [InlineData("123456789012345678901aZ", "Password Three is longer than 20", ExpectedValidationResult.Fail)]
         public void WhenValidatingWeakPasswordEnsureCorrectTestsResults(String value, String expectedMessage, ExpectedValidationResult expectedValidationResult) {

@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
     using Oceanware.Ocean.ValidationRules;

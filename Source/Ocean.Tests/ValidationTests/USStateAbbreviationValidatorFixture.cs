@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
     using Oceanware.Ocean.ValidationRules;
@@ -14,7 +14,7 @@
 
         [Theory]
         [InlineData("on", "State 'on' state abbreviation is not valid.", ExpectedValidationResult.Fail)]
-        [InlineData(null, "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData(null, "State was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
         [InlineData("AE", "", ExpectedValidationResult.Pass)]
         [InlineData("DC", "", ExpectedValidationResult.Pass)]
         [InlineData("in", "", ExpectedValidationResult.Pass)]

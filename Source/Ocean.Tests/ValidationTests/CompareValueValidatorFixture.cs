@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
     using Oceanware.Ocean.ValidationRules;
@@ -98,9 +98,9 @@
 
         [Theory]
         [InlineData("test@gmail.com", "Email must not equal test@gmail.com.", ExpectedValidationResult.Fail)]
-        [InlineData(null, "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
-        [InlineData("", "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
-        [InlineData("  ", "Value was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData(null, "Email was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData("", "Email was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
+        [InlineData("  ", "Email was null, DBNull, or empty string but was required.", ExpectedValidationResult.Fail)]
         [InlineData("x", "", ExpectedValidationResult.Pass)]
         public void StringValueMustNotEqualEnsureCorrectTestsResults(String targetValue, String expectedMessage, ExpectedValidationResult expectedValidationResult) {
             // arrange

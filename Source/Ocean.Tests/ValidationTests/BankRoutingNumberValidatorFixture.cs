@@ -1,6 +1,7 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
+    using Oceanware.Ocean;
     using Oceanware.Ocean.Extensions;
     using Oceanware.Ocean.ValidationRules;
     using Xunit;
@@ -111,7 +112,8 @@
             // arrange
             _sut.NavyFederalRoutingNumber = value;
             const String TargetPropertyName = nameof(_sut.NavyFederalRoutingNumber);
-            String ExpectedMessage = "Value was null, DBNull, or empty string but was required.";
+            var targetPropertyNameFriendlyName = nameof(_sut.NavyFederalRoutingNumber).GetWords();
+            String ExpectedMessage = $"{targetPropertyNameFriendlyName} was null, DBNull, or empty string but was required.";
 
             // act assert
             base.RunValidation(TargetPropertyName, _sut, ExpectedMessage);
@@ -124,13 +126,15 @@
             // arrange
             _sut.ChaseBankRoutingNumber = value;
             const String TargetPropertyName = nameof(_sut.ChaseBankRoutingNumber);
-            String ExpectedMessage = "Value was null, DBNull, or empty string but was required.";
+            var targetPropertyNameFriendlyName = nameof(_sut.ChaseBankRoutingNumber).GetWords();
+            String ExpectedMessage = $"{targetPropertyNameFriendlyName} was null, DBNull, or empty string but was required.";
 
             // act assert
             base.RunValidation(TargetPropertyName, _sut, ExpectedMessage);
         }
 
         class Customer : IRuleSet {
+
             public String ActiveRuleSet { get; set; }
 
             [BankRoutingNumberValidator()]

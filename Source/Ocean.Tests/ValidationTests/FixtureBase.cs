@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
     using Oceanware.Ocean.Rules;
@@ -14,12 +14,12 @@
         public void RunValidation(String targetPropertyName, Object sut, String expectedMessage, Int32 expectedErrorsCount = 1) {
             // act
             var validationResult = _modelRulesInvoker.CheckAllValidationRulesForProperty(sut, targetPropertyName);
-
+            var x = validationResult.ValidationErrors[0].Value.ErrorMessage;
             // Assert
             Assert.False(validationResult.IsValid, "Expect validation to fail.");
             Assert.True(expectedErrorsCount == validationResult.ValidationErrors.Count, "Unexpected number of validation errors.");
-            Assert.True(expectedMessage == validationResult.ValidationErrors[0].Value.ErrorMessage, "Incorrect error message");
-            Assert.True(targetPropertyName == validationResult.ValidationErrors[0].Key, "Incorrect member name");
+            Assert.Equal(expectedMessage, validationResult.ValidationErrors[0].Value.ErrorMessage);
+            Assert.Equal(targetPropertyName, validationResult.ValidationErrors[0].Key);
         }
 
         public void RunValidation(ExpectedValidationResult expectedValidationResult, String targetPropertyName, Object sut, String expectedMessage, Int32 expectedErrorsCount = 1) {

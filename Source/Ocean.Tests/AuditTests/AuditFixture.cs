@@ -1,4 +1,4 @@
-﻿namespace Oceanware.Ocean.Tests.AuditTests {
+﻿namespace Ocean.Tests.AuditTests {
 
     using System;
     using System.Collections.Generic;

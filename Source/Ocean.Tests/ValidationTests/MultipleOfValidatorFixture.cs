@@ -1,11 +1,10 @@
 ﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
-    using Oceanware.Ocean.Tests.ValidationTests;
     using Oceanware.Ocean.ValidationRules;
     using Xunit;
 
-    public class MultipleOfValidatorFixture : Oceanware.Ocean.Tests.ValidationTests.FixtureBase {
+    public class MultipleOfValidatorFixture : FixtureBase {
         readonly Customer _sut;
 
         public MultipleOfValidatorFixture() {

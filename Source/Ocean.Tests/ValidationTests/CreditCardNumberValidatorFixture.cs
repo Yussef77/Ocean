@@ -1,6 +1,7 @@
-﻿namespace Oceanware.Ocean.Tests.ValidationTests {
+﻿namespace Ocean.Tests.ValidationTests {
 
     using System;
+    using Oceanware.Ocean;
     using Oceanware.Ocean.Extensions;
     using Oceanware.Ocean.ValidationRules;
     using Xunit;
@@ -91,7 +92,8 @@
             // arrange
             _sut.NavyFederalCreditCardNumber = value;
             const String TargetPropertyName = nameof(_sut.NavyFederalCreditCardNumber);
-            String ExpectedMessage = "Value was null, DBNull, or empty string but was required.";
+            var targetPropertyNameFriendlyName = nameof(_sut.NavyFederalCreditCardNumber).GetWords();
+            String ExpectedMessage = $"{targetPropertyNameFriendlyName} was null, DBNull, or empty string but was required.";
 
             // act assert
             base.RunValidation(TargetPropertyName, _sut, ExpectedMessage);
@@ -104,7 +106,8 @@
             // arrange
             _sut.ChaseCreditCardNumber = value;
             const String TargetPropertyName = nameof(_sut.ChaseCreditCardNumber);
-            String ExpectedMessage = "Value was null, DBNull, or empty string but was required.";
+            var targetPropertyNameFriendlyName = nameof(_sut.ChaseCreditCardNumber).GetWords();
+            String ExpectedMessage = $"{targetPropertyNameFriendlyName} was null, DBNull, or empty string but was required.";
 
             // act assert
             base.RunValidation(TargetPropertyName, _sut, ExpectedMessage);
