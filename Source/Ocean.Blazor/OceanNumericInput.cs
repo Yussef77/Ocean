@@ -10,7 +10,7 @@
 
     /// <summary>
     /// An input component for editing numeric values.
-    /// Supported numeric types are <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, <see cref="Decimal"/>.
+    /// Supported numeric types are <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, and <see cref="Decimal"/>.
     /// </summary>
     public class OceanNumericInput<TValue> : InputBase<TValue> {
         readonly Boolean _isWholeNumberOnly;
@@ -30,26 +30,31 @@
         public Int32 NumberOfDecimalPlaces { get; set; }
 
         /// <summary>
-        /// Gets or sets the error message used when displaying an a parsing error.
+        /// Gets or sets the error message used when displaying an a parsing error. This message has a localized default message, developers can override the default message by setting this property in the .razor file.
         /// </summary>
         /// <value>The parsing error message.</value>
         [Parameter]
         public String ParsingErrorMessage { get; set; }
 
         /// <summary>
-        /// Gets or sets the too many digits error message.  See OnAfterRender for default value.
+        /// Gets or sets the too many digits error message. This message has a localized default message, developers can override the default message by setting this property in the .razor file.
         /// </summary>
         /// <value>The too many digits error message.</value>
         [Parameter]
         public String TooManyDigitsErrorMessage { get; set; }
 
         /// <summary>
-        /// Gets or sets the whole number error message used when displaying an a parsing error.
+        /// Gets or sets the whole number error message used when displaying an a parsing error. This message has a localized default message, developers can override the default message by setting this property in the .razor file.
         /// </summary>
         /// <value>The whole number parsing error message.</value>
         [Parameter]
         public String WholeNumberParsingErrorMessage { get; set; }
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="OceanNumericInput{TValue}"/> class.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown when bound property type is not <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, or <see cref="Decimal"/>.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when property number of decimal places is less than zero.</exception>
         public OceanNumericInput() {
             var targetType = Nullable.GetUnderlyingType(typeof(TValue)) ?? typeof(TValue);
             _isWholeNumberOnly = targetType == typeof(Int32) || targetType == typeof(Int64) || targetType == typeof(Int16);
@@ -66,7 +71,10 @@
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Renders the component to the supplied RenderTreeBuilder.
+        /// </summary>
+        /// <param name="builder">A RenderTreeBuilder that will receive the render output.</param>
         protected override void BuildRenderTree(RenderTreeBuilder builder) {
             builder.OpenElement(0, "input");
             builder.AddMultipleAttributes(1, AdditionalAttributes);
@@ -77,7 +85,12 @@
             builder.CloseElement();
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Formats the value as a string. Derived classes can override this to determine the formating used for CurrentValueAsString.
+        /// </summary>
+        /// <param name="value">The value to format.</param>
+        /// <returns>A string representation of the value using the current culture when formatting the returned value.</returns>
+        /// <exception cref="InvalidOperationException">Thrown when values is an unsupported type.</exception>
         protected override String FormatValueAsString(TValue value) {
             switch (value) {
                 case null:
@@ -102,27 +115,44 @@
                     return this.FormatValue(@decimal);
 
                 default:
-                    throw new InvalidOperationException($"Unsupported type {value.GetType()}");
+                    throw new InvalidOperationException(String.Format(Resources.TypeIsNotASupportedNumericTypeFormat, value.GetType().FullName));
             }
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// Method invoked after each time the component has been rendered. If the error messages have not be set in the .razor UI, they are each set to a localized message.
+        /// </summary>
+        /// <param name="firstRender">Set to <c>true</c> if this is the first time has been invoked on this component instance; otherwise <c>false</c>.</param>
+        /// <remarks>The see the OnAfterRender and OnAfterRenderAsync lifecycle methods are useful for performing interop, or interacting with values received from <c>@ref</c>.
+        /// Use the <paramref name="firstRender" /> parameter to ensure that initialization work is only performed once.</remarks>
         protected override void OnAfterRender(Boolean firstRender) {
-            if (!_isWholeNumberOnly && String.IsNullOrWhiteSpace(this.TooManyDigitsErrorMessage)) {
-                this.TooManyDigitsErrorMessage = String.Concat(Resources.TooManyDigitsErrorMessageFormat, this.NumberOfDecimalPlaces);
-            }
-            if (String.IsNullOrWhiteSpace(this.ParsingErrorMessage)) {
-                this.ParsingErrorMessage = Resources.ParsingErrorMessageFormat;
-            }
-            if (String.IsNullOrWhiteSpace(this.WholeNumberParsingErrorMessage)) {
-                this.WholeNumberParsingErrorMessage = Resources.WholeNumberParsingErrorMessageFormat;
+            if (firstRender) {
+                if (!_isWholeNumberOnly && String.IsNullOrWhiteSpace(this.TooManyDigitsErrorMessage)) {
+                    this.TooManyDigitsErrorMessage = String.Concat(Resources.TooManyDigitsErrorMessageFormat, " ", this.NumberOfDecimalPlaces, ".");
+                }
+                if (String.IsNullOrWhiteSpace(this.ParsingErrorMessage)) {
+                    this.ParsingErrorMessage = Resources.ParsingErrorMessageFormat;
+                }
+                if (String.IsNullOrWhiteSpace(this.WholeNumberParsingErrorMessage)) {
+                    this.WholeNumberParsingErrorMessage = Resources.WholeNumberParsingErrorMessageFormat;
+                }
             }
             base.OnAfterRender(firstRender);
         }
 
-        /// <inheritdoc />
+        /// <summary>
+        /// <para>
+        /// Parses a string to create an instance of <typeparamref name="TValue" />. Derived classes can override this to change how CurrentValueAsString interprets incoming values.
+        /// </para>
+        /// <para>
+        /// This method handles all the input use cases to around the decimal separator, group separator, and negative sign.
+        /// </para>
+        /// </summary>
+        /// <param name="value">The string value to be parsed.</param>
+        /// <param name="result">An instance of <typeparamref name="TValue" />.</param>
+        /// <param name="validationErrorMessage">If the value could not be parsed, provides a validation error message.</param>
+        /// <returns>True if the value could be parsed; otherwise false.</returns>
         protected override Boolean TryParseValueFromString(String value, out TValue result, out String validationErrorMessage) {
-            var tooManyDigits = false;
             if (String.IsNullOrWhiteSpace(value)) {
                 value = "0";
             } else {
@@ -138,7 +168,9 @@
                             numberOfCharactersPastDecimalPoint++;
                         }
                         if (numberOfCharactersPastDecimalPoint > this.NumberOfDecimalPlaces) {
-                            tooManyDigits = true;
+                            result = default;
+                            validationErrorMessage = String.Format(TooManyDigitsErrorMessage, FieldIdentifier.FieldName.GetWords());
+                            return false;
                         }
                         continue;
                     } else {
@@ -166,10 +198,6 @@
             }
 
             if (BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out result)) {
-                if (tooManyDigits) {
-                    validationErrorMessage = String.Format(TooManyDigitsErrorMessage, FieldIdentifier.FieldName.GetWords());
-                    return false;
-                }
                 validationErrorMessage = null;
                 return true;
             } else {
