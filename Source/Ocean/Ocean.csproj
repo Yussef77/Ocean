@@ -20,7 +20,7 @@ Library does not require entities to implement any interfaces or based classes i
     <PackageIconUrl>https://oceanware.files.wordpress.com/2019/08/oceanwarelogo-128x128.png</PackageIconUrl>
     <RootNamespace>Oceanware.Ocean</RootNamespace>
     <AssemblyName>Oceanware.Ocean</AssemblyName>
-    <Version>1.6.0</Version>
+    <Version>1.7.0</Version>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageReleaseNotes>No changes, verisioned package to stay in sync with Ocean.Blazer.</PackageReleaseNotes>
   </PropertyGroup>

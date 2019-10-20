@@ -63,6 +63,7 @@ Provides the `OceanNumericInput` component.
 - Always uses CurrentCulture when performing string format operations.
 - Allows entering and displaying a number separator. (the stock Blazor InputNumber component does not as it uses the HTML 5 input with type="number" that prevents a comma from being entered.
 - Easily enable mobile browser numeric popup keyboard, set the BrowserInputMode property to Decimal or Numeric.
+- Supports displaying the currency symbol in the input field if desired.  To enable, set the FormatString to `c`. 
 
 #### Oceanware.Ocean.Blazor Requirements
 .NET Core 3.0 RTM, and latest Visual Studio 2019.

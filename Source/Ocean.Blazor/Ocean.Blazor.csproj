@@ -21,8 +21,8 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.6.0</Version>
-    <PackageReleaseNotes>Added support for setting the BrowserInputMode on the component so that mobile browsers will display the popup numeric keypad.</PackageReleaseNotes>
+    <Version>1.7.0</Version>
+    <PackageReleaseNotes>Added support for displaying the currency symbol in the edit field.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

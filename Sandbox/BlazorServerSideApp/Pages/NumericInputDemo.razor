@@ -32,13 +32,8 @@
         <ValidationMessage For="(() => Numerics.BigCount)" />
     </p>
     <p>
-        <label for="extendedPrice">Extended Price (Decimal, default 1234.99, max length 12, FormatString N, validation greater than equal to zero)</label>
-        <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
-            </div>
-            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N2" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="extendedPrice" @bind-Value="Numerics.ExtendedPrice" />
-        </div>
+        <label for="extendedPrice">Extended Price (Decimal, default 1234.99, max length 12, <strong>FormatString c</strong>, validation greater than equal to zero)</label>
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="c" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="extendedPrice" @bind-Value="Numerics.ExtendedPrice" />
         <ValidationMessage For="(() => Numerics.ExtendedPrice)" />
     </p>
     <p>

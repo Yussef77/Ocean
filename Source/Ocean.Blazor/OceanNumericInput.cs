@@ -179,6 +179,7 @@
                 var decimalSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
                 var groupSeparator = CultureInfo.CurrentCulture.NumberFormat.NumberGroupSeparator;
                 var negativeSign = CultureInfo.CurrentCulture.NumberFormat.NegativeSign;
+                var currencySymbol = CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol;
 
                 foreach (var c in value) {
                     if (Char.IsDigit(c)) {
@@ -193,7 +194,7 @@
                         continue;
                     } else {
                         var cString = c.ToString();
-                        if (cString == groupSeparator || cString == negativeSign) {
+                        if (cString == groupSeparator || cString == negativeSign || cString == currencySymbol) {
                             continue;
                         } else if (!_isWholeNumberOnly && cString == decimalSeparator) {
                             foundDecimalPoint = true;
@@ -214,6 +215,8 @@
                     return false;
                 }
             }
+
+            value = value.Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, String.Empty);
 
             try {
                 if (BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out result)) {
