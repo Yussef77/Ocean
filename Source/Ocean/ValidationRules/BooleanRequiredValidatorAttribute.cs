@@ -1,12 +1,19 @@
 ﻿namespace Oceanware.Ocean.ValidationRules {
 
     using System;
-    using System.Linq;
     using System.Reflection;
 
+    /// <summary>
+    /// Class BooleanRequiredValidatorAttribute is applied to Boolean properties and when applied, requires that the value be true.
+    /// Used in website to required users to accept terms, etc.
+    /// Derives from the <see cref="BaseValidatorAttribute" />
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
     public class BooleanRequiredValidatorAttribute : BaseValidatorAttribute {
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BooleanRequiredValidatorAttribute"/> class.
+        /// </summary>
         public BooleanRequiredValidatorAttribute() {
         }
 
@@ -42,48 +49,18 @@
             }
 
             var targetValue = propertyInfo.GetValue(target, null);
+            if (targetValue == null) {
+                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsRequiredToBeCheckedFormat, displayName), displayName, targetValue);
+                return false;
+            }
 
-            if (this.RequiredEntry == RequiredEntry.Yes) {
-                if (targetValue == null || String.IsNullOrWhiteSpace(Convert.ToString(targetValue).Trim()) || Convert.IsDBNull(targetValue)) {
-                    this.FinalErrorMessage = base.CreateFailedValidationMessage(Strings.ValueWasNullOrDBNullOrEmptyStringButWasRequired, displayName, targetValue);
-                    return false;
-                }
+            var resolvedValue = (Boolean)targetValue;
+            if (resolvedValue) {
+                return true;
             } else {
-                if (targetValue == null || String.IsNullOrWhiteSpace(Convert.ToString(targetValue).Trim()) || Convert.IsDBNull(targetValue)) {
-                    return true;
-                }
-            }
-
-            String bankRoutingNumber = Convert.ToString(targetValue).Trim();
-            Int32 bankRoutingNumberLength = bankRoutingNumber.Length;
-            Int32 bankRoutingNumberCalculationValue = 0;
-
-            if (bankRoutingNumberLength != 9) {
-                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberAllBankRoutingNumbersAreNineDigitsInLengthFormat, displayName, bankRoutingNumber), displayName, targetValue);
+                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsRequiredToBeCheckedFormat, displayName), displayName, targetValue);
                 return false;
             }
-
-            if (Int32.Parse(bankRoutingNumber.Substring(0, 1)) > 1) {
-                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberAllBankRoutingNumbersFirstDigitMustBeZeorOrOneFormat, displayName, bankRoutingNumber), displayName, targetValue);
-                return false;
-            }
-
-            if (bankRoutingNumber.Any(c => !Char.IsDigit(c))) {
-                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberAllBankRoutingNumbersCharactersMustBeNumericFormat, displayName, bankRoutingNumber), displayName, targetValue);
-                return false;
-            }
-
-            for (Int32 intX = 0; intX <= 8; intX += 3) {
-                bankRoutingNumberCalculationValue += Int32.Parse(bankRoutingNumber.Substring(intX, 1)) * 3;
-                bankRoutingNumberCalculationValue += Int32.Parse(bankRoutingNumber.Substring(intX + 1, 1)) * 7;
-                bankRoutingNumberCalculationValue += Int32.Parse(bankRoutingNumber.Substring(intX + 2, 1));
-            }
-
-            if (bankRoutingNumberCalculationValue % 10 != 0) {
-                this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueIsNotAValidBankRoutingNumberFormat, displayName, bankRoutingNumber), displayName, targetValue);
-                return false;
-            }
-            return true;
         }
     }
 }

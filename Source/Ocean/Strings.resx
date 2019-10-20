@@ -336,6 +336,9 @@
   <data name="ValueIsNullEmptyOrWhiteSpace" xml:space="preserve">
     <value>Value is null, empty, or white space.</value>
   </data>
+  <data name="ValueIsRequiredToBeCheckedFormat" xml:space="preserve">
+    <value>{0} is required to be checked.</value>
+  </data>
   <data name="ValueMustBeEqualToTargetValueFormat" xml:space="preserve">
     <value>{0} must be equal to {1}.</value>
   </data>
@@ -363,10 +366,7 @@
   <data name="ValueWasNullFormat" xml:space="preserve">
     <value>{0} was null.</value>
   </data>
-  <data name="ValueWasNullOrDBNullButWasRequired" xml:space="preserve">
-    <value>Value was null or DBNull but was required.</value>
-  </data>
-  <data name="ValueWasNullOrDBNullOrEmptyStringButWasRequired" xml:space="preserve">
-    <value>Value was null, DBNull, or empty string but was required.</value>
+  <data name="ValueWasNullOrDBNullOrEmptyStringButWasRequiredFormat" xml:space="preserve">
+    <value>{0} was null, DBNull, or empty string but was required.</value>
   </data>
 </root>

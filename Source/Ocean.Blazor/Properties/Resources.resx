@@ -117,7 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ParsingErrorMessageFormat" xml:space="preserve">
+    <value>{0} numeric input only. Allowed are digits, culture specific number separator, digits separator, and negative sign.</value>
+  </data>
   <data name="RequiresCascadingParameterFormat" xml:space="preserve">
     <value>{0} requires a cascading parameter of type {1}. For example, you can use {2} inside an {3}."</value>
+  </data>
+  <data name="TooManyDigitsErrorMessageFormat" xml:space="preserve">
+    <value>{0} too many digits entered. Max number of digits is</value>
+  </data>
+  <data name="TypeIsNotASupportedNumericTypeFormat" xml:space="preserve">
+    <value>The type {0} is not a supported numeric type.</value>
+  </data>
+  <data name="ValueMustBeEqualToOrGreaterThanZeroFormat" xml:space="preserve">
+    <value>{0} must be equal to or greater than zero. Value was {1}.</value>
+  </data>
+  <data name="WholeNumberParsingErrorMessageFormat" xml:space="preserve">
+    <value>{0} numeric input only. Allowed are digits, culture specific number separator, and negative sign.</value>
   </data>
 </root>

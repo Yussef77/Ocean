@@ -5,6 +5,7 @@
     using Microsoft.AspNetCore.Components;
     using Microsoft.AspNetCore.Components.Forms;
     using Microsoft.AspNetCore.Components.Rendering;
+    using Oceanware.Ocean.Blazor.Properties;
     using Oceanware.Ocean.Extensions;
 
     /// <summary>
@@ -33,21 +34,21 @@
         /// </summary>
         /// <value>The parsing error message.</value>
         [Parameter]
-        public String ParsingErrorMessage { get; set; } = "{0} numeric input only. Allowed are digits, culture specific number separator, digits separator, and negative sign.";
+        public String ParsingErrorMessage { get; set; }
 
         /// <summary>
         /// Gets or sets the too many digits error message.  See OnAfterRender for default value.
         /// </summary>
         /// <value>The too many digits error message.</value>
         [Parameter]
-        public String TooManyDigitsErrorMessage { get; set; } = String.Empty;
+        public String TooManyDigitsErrorMessage { get; set; }
 
         /// <summary>
         /// Gets or sets the whole number error message used when displaying an a parsing error.
         /// </summary>
         /// <value>The whole number parsing error message.</value>
         [Parameter]
-        public String WholeNumberParsingErrorMessage { get; set; } = "{0} numeric input only. Allowed are digits, culture specific number separator, and negative sign.";
+        public String WholeNumberParsingErrorMessage { get; set; }
 
         public OceanNumericInput() {
             var targetType = Nullable.GetUnderlyingType(typeof(TValue)) ?? typeof(TValue);
@@ -57,11 +58,11 @@
             }
 
             if (targetType != typeof(Single) && targetType != typeof(Double) && targetType != typeof(Decimal)) {
-                throw new InvalidOperationException($"The type '{targetType}' is not a supported numeric type.");
+                throw new InvalidOperationException(String.Format(Resources.TypeIsNotASupportedNumericTypeFormat, targetType));
             }
 
             if (NumberOfDecimalPlaces < 0) {
-                throw new InvalidOperationException($"{nameof(NumberOfDecimalPlaces)} must be equal to or greater than zero. Value was {this.NumberOfDecimalPlaces}.");
+                throw new InvalidOperationException(String.Format(Resources.ValueMustBeEqualToOrGreaterThanZeroFormat, nameof(NumberOfDecimalPlaces), this.NumberOfDecimalPlaces));
             }
         }
 
@@ -108,7 +109,13 @@
         /// <inheritdoc />
         protected override void OnAfterRender(Boolean firstRender) {
             if (!_isWholeNumberOnly && String.IsNullOrWhiteSpace(this.TooManyDigitsErrorMessage)) {
-                this.TooManyDigitsErrorMessage = String.Concat("{0} too many digits entered. Max number of digits is ", this.NumberOfDecimalPlaces);
+                this.TooManyDigitsErrorMessage = String.Concat(Resources.TooManyDigitsErrorMessageFormat, this.NumberOfDecimalPlaces);
+            }
+            if (String.IsNullOrWhiteSpace(this.ParsingErrorMessage)) {
+                this.ParsingErrorMessage = Resources.ParsingErrorMessageFormat;
+            }
+            if (String.IsNullOrWhiteSpace(this.WholeNumberParsingErrorMessage)) {
+                this.WholeNumberParsingErrorMessage = Resources.WholeNumberParsingErrorMessageFormat;
             }
             base.OnAfterRender(firstRender);
         }

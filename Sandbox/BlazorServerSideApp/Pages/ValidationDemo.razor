@@ -34,7 +34,7 @@
     </p>
     <p>
         <label for="birthday">Birthday</label>
-        <InputDate T="DateTime" placeholder="Birthday" Class="form-control" id="birthday" @bind-Value="Customer.Birthday" />
+        <InputDate placeholder="Birthday" Class="form-control" id="birthday" @bind-Value="Customer.Birthday" />
         <ValidationMessage For="(() => Customer.Birthday)" />
     </p>
     <p>
@@ -57,12 +57,16 @@
         <InputText type="password" placeholder="Confirm Password" maxlength="20" Class="form-control" id="confirmPassword" @bind-Value="Customer.PasswordConfirm" />
         <ValidationMessage For="(() => Customer.PasswordConfirm)" />
     </p>
-
     <p>
         <label for="evaluation">Evaluation</label>
         <InputText placeholder="Evaluation" maxlength="100" Class="form-control" id="evaluation" @bind-Value="Customer.Evaluation" />
         <ValidationMessage For="(() => Customer.Evaluation)" />
     </p>
+    <p>
+        <label for="acceptTerms">Accept Usage Terms</label>
+        <InputCheckbox style="vertical-align: middle; margin-left: 10px;" id="acceptTerms" @bind-Value="Customer.AcceptTerms" />
+        <ValidationMessage For="(() => Customer.AcceptTerms)" />
+    </p>
 
-    <button type="submit">Submit</button>
+    <button style="margin-bottom: 30px;" type="submit">Submit</button>
 </EditForm>

@@ -10,6 +10,9 @@
         [field: NonSerialized]
         ValidationRulesManager _instanceValidationRulesManager;
 
+        [BooleanRequiredValidator]
+        public Boolean AcceptTerms { get; set; }
+
         public String ActiveRuleSet { get; set; }
 
         [CharacterFormatting(CharacterCasing.ProperName, RemoveSpace = RemoveSpace.MultipleSpaces)]

@@ -722,6 +722,15 @@ namespace Oceanware.Ocean {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} is required to be checked..
+        /// </summary>
+        public static string ValueIsRequiredToBeCheckedFormat {
+            get {
+                return ResourceManager.GetString("ValueIsRequiredToBeCheckedFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} must be equal to {1}..
         /// </summary>
         public static string ValueMustBeEqualToTargetValueFormat {
@@ -803,20 +812,11 @@ namespace Oceanware.Ocean {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Value was null or DBNull but was required..
+        ///   Looks up a localized string similar to {0} was null, DBNull, or empty string but was required..
         /// </summary>
-        public static string ValueWasNullOrDBNullButWasRequired {
+        public static string ValueWasNullOrDBNullOrEmptyStringButWasRequiredFormat {
             get {
-                return ResourceManager.GetString("ValueWasNullOrDBNullButWasRequired", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Value was null, DBNull, or empty string but was required..
-        /// </summary>
-        public static string ValueWasNullOrDBNullOrEmptyStringButWasRequired {
-            get {
-                return ResourceManager.GetString("ValueWasNullOrDBNullOrEmptyStringButWasRequired", resourceCulture);
+                return ResourceManager.GetString("ValueWasNullOrDBNullOrEmptyStringButWasRequiredFormat", resourceCulture);
             }
         }
     }

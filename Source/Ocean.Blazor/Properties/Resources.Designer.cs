@@ -61,11 +61,56 @@ namespace Oceanware.Ocean.Blazor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} numeric input only. Allowed are digits, culture specific number separator, digits separator, and negative sign..
+        /// </summary>
+        internal static string ParsingErrorMessageFormat {
+            get {
+                return ResourceManager.GetString("ParsingErrorMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} requires a cascading parameter of type {1}. For example, you can use {2} inside an {3}.&quot;.
         /// </summary>
         internal static string RequiresCascadingParameterFormat {
             get {
                 return ResourceManager.GetString("RequiresCascadingParameterFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} too many digits entered. Max number of digits is.
+        /// </summary>
+        internal static string TooManyDigitsErrorMessageFormat {
+            get {
+                return ResourceManager.GetString("TooManyDigitsErrorMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The type {0} is not a supported numeric type..
+        /// </summary>
+        internal static string TypeIsNotASupportedNumericTypeFormat {
+            get {
+                return ResourceManager.GetString("TypeIsNotASupportedNumericTypeFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} must be equal to or greater than zero. Value was {1}..
+        /// </summary>
+        internal static string ValueMustBeEqualToOrGreaterThanZeroFormat {
+            get {
+                return ResourceManager.GetString("ValueMustBeEqualToOrGreaterThanZeroFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} numeric input only. Allowed are digits, culture specific number separator, and negative sign..
+        /// </summary>
+        internal static string WholeNumberParsingErrorMessageFormat {
+            get {
+                return ResourceManager.GetString("WholeNumberParsingErrorMessageFormat", resourceCulture);
             }
         }
     }

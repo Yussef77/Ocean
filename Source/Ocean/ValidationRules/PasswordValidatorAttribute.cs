@@ -167,7 +167,7 @@
 
             if (this.RequiredEntry == RequiredEntry.Yes) {
                 if (targetValue == null || String.IsNullOrWhiteSpace(Convert.ToString(targetValue).Trim()) || Convert.IsDBNull(targetValue)) {
-                    this.FinalErrorMessage = base.CreateFailedValidationMessage(Strings.ValueWasNullOrDBNullOrEmptyStringButWasRequired, displayName, targetValue);
+                    this.FinalErrorMessage = base.CreateFailedValidationMessage(String.Format(Strings.ValueWasNullOrDBNullOrEmptyStringButWasRequiredFormat, displayName), displayName, targetValue);
                     return false;
                 }
             } else {
