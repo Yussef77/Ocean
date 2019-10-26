@@ -1,7 +1,7 @@
-﻿namespace BlazorServerSideApp.Pages {
+﻿namespace BlazorAppShared.Pages {
 
     using System;
-    using BlazorServerSideApp.Model;
+    using BlazorAppShared.Model;
     using Microsoft.AspNetCore.Components;
     using Oceanware.Ocean.ValidationRules;
 

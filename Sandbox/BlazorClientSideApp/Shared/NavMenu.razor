@@ -1,5 +1,5 @@
 ﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Ocean Blazor Demo</a>
+    <a class="navbar-brand" href="">Ocean Blazor</a>
     <button class="navbar-toggler" @onclick="ToggleNavMenu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -36,7 +36,8 @@
 
     string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
 
-    void ToggleNavMenu() {
+    void ToggleNavMenu()
+    {
         collapseNavMenu = !collapseNavMenu;
     }
 }

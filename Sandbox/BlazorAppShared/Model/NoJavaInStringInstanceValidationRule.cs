@@ -1,4 +1,4 @@
-﻿namespace BlazorServerSideApp.Model {
+﻿namespace BlazorAppShared.Model {
 
     using System;
     using System.Reflection;

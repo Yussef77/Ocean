@@ -131,7 +131,7 @@
                     Text="{Binding Path=Customer.Evaluation, Mode=TwoWay, ValidatesOnDataErrors=True, ValidatesOnNotifyDataErrors=True, ValidatesOnExceptions=True}"
                     Grid.Column="1"
                     Grid.Row="9"
-                    Height="150" />
+                    Height="100" />
             </Grid>
         </Grid>
     </Grid>

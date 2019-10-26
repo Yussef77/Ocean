@@ -13,8 +13,26 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Model\**" />
+    <Content Remove="Model\**" />
+    <EmbeddedResource Remove="Model\**" />
+    <None Remove="Model\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Pages\NumericInputDemo.razor.cs" />
+    <Compile Remove="Pages\ValidationDemo.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Pages\NumericInputDemo.razor" />
+    <Content Remove="Pages\ValidationDemo.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Source\Ocean.Blazor\Ocean.Blazor.csproj" />
     <ProjectReference Include="..\..\Source\Ocean\Ocean.csproj" />
+    <ProjectReference Include="..\BlazorAppShared\BlazorAppShared.csproj" />
   </ItemGroup>
 
 </Project>

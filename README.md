@@ -56,7 +56,7 @@ Provides the `OceanValidator` that is the Blazor middleware between the Ocean va
 
 Provides the `OceanNumericInput` component.
 
-- Supports binding to Int16, Int16?, Int32, Int32?, Int64, Int64?, Single, Single?, Double, Double?, Decimal, and Decimal? data types.
+- Supports binding to Int32, Int32?, Int64, Int64?, Single, Single?, Double, Double?, Decimal, and Decimal? data types.
 - Has a FormatString property.
 - Prevents users from entering invalid numeric values and values with too many digits after the digits separator.
 - String formatting of the entered values uses the culture-specific numeric separator, digits separator, and negative sign.

@@ -1,0 +1,93 @@
+﻿@page "/NonNullableNumericInputDemo"
+
+
+<h1>Numeric Input Demo - Binding To Non-Nullable Properties</h1>
+
+<EditForm Model="NonNullableNumerics" OnValidSubmit="HandleValidSubmit">
+    <OceanValidator />
+    <ValidationSummary />
+
+    <h3>Binding To Non-Nullable Properties</h3>
+    <p>
+        <label for="count">Count (Int32, default 5000, max length 10, FormatString N0)</label>
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N0" placeholder="Count" maxlength="10" Class="form-control" id="count" @bind-Value="NonNullableNumerics.Count" />
+        <ValidationMessage For="(() => NonNullableNumerics.Count)" />
+    </p>
+    <p>
+        <label for="bigCount">BigCount (Int64, default 104587, max length 12, FormatString N0)</label>
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N0" placeholder="Big Count" maxlength="12" Class="form-control" id="bigCount" @bind-Value="NonNullableNumerics.BigCount" />
+        <ValidationMessage For="(() => NonNullableNumerics.BigCount)" />
+    </p>
+    <p>
+        <label for="extendedPrice">Extended Price (Decimal, default 1234.99, max length 12, <strong>FormatString c</strong>, validation greater than equal to zero)</label>
+        <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="c" NumberOfDecimalPlaces="2" placeholder="Extended Price" maxlength="12" Class="form-control" id="extendedPrice" @bind-Value="NonNullableNumerics.ExtendedPrice" />
+        <ValidationMessage For="(() => NonNullableNumerics.ExtendedPrice)" />
+    </p>
+    <p>
+        <label for="price">Price (Single, default 2.99, max length 10, FormatString N, validation greater than equal to zero)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
+            </div>
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Price" maxlength="10" Class="form-control" id="price" @bind-Value="NonNullableNumerics.Price" />
+        </div>
+        <ValidationMessage For="(() => NonNullableNumerics.Price)" />
+    </p>
+    <p>
+        <label for="revenue">Revenue (Double, default 25987.87, max length 10, FormatString N, validation greater than equal to zero)</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text">@(NumberFormatInfo.CurrentInfo.CurrencySymbol)</span>
+            </div>
+            <OceanNumericInput BrowserInputMode="BrowserInputMode.Decimal" FormatString="N" NumberOfDecimalPlaces="2" placeholder="Revenue" maxlength="10" Class="form-control" id="revenue" @bind-Value="NonNullableNumerics.Revenue" />
+        </div>
+        <ValidationMessage For="(() => NonNullableNumerics.Revenue)" />
+    </p>
+
+    <button style="margin-bottom: 30px;" type="submit">Display Model Values</button>
+
+    @if (ShowModelNameValues) {
+        <div class="result">
+            <table cellpadding="5">
+                <thead>
+                    <tr>
+                        <th>Property Name</th>
+                        <th>Property Value</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in GetModelNameValues()) {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <button @onclick="ClearValuesClicked">Clear Model Values</button>
+    }
+</EditForm>
+
+
+@code {
+    public NonNullableNumerics NonNullableNumerics { get; set; } = new NonNullableNumerics();
+    public Boolean ShowModelNameValues { get; private set; }
+
+    public IEnumerable<NameValuePair> GetModelNameValues() {
+        var list = new List<NameValuePair>();
+        foreach (var pi in this.NonNullableNumerics.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)) {
+            list.Add(new NameValuePair(pi.Name, pi.GetValue(this.NonNullableNumerics)));
+        }
+        return list;
+    }
+
+    public void HandleValidSubmit() {
+        this.ShowModelNameValues = true;
+    }
+
+    public void ClearValuesClicked() {
+        this.ShowModelNameValues = false;
+    }
+}

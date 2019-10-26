@@ -10,7 +10,7 @@
 
     /// <summary>
     /// An input component for editing numeric values.
-    /// Supported numeric types are <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, and <see cref="Decimal"/>.
+    /// Supported numeric types are <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, and <see cref="Decimal"/>.
     /// </summary>
     public class OceanNumericInput<TValue> : InputBase<TValue> {
         readonly Boolean _isWholeNumberOnly;
@@ -65,17 +65,17 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="OceanNumericInput{TValue}"/> class.
         /// </summary>
-        /// <exception cref="InvalidOperationException">Thrown when bound property type is not <see cref="Int16"/>, <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, or <see cref="Decimal"/>.</exception>
+        /// <exception cref="InvalidOperationException">Thrown when bound property type is not <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, or <see cref="Decimal"/>.</exception>
         /// <exception cref="InvalidOperationException">Thrown when property number of decimal places is less than zero.</exception>
         public OceanNumericInput() {
-            var targetType = Nullable.GetUnderlyingType(typeof(TValue)) ?? typeof(TValue);
-            _isWholeNumberOnly = targetType == typeof(Int32) || targetType == typeof(Int64) || targetType == typeof(Int16);
+            var underlyingType = Nullable.GetUnderlyingType(typeof(TValue)) ?? typeof(TValue);
+            _isWholeNumberOnly = underlyingType == typeof(Int32) || underlyingType == typeof(Int64);
             if (_isWholeNumberOnly) {
                 return;
             }
 
-            if (targetType != typeof(Single) && targetType != typeof(Double) && targetType != typeof(Decimal)) {
-                throw new InvalidOperationException(String.Format(Resources.TypeIsNotASupportedNumericTypeFormat, targetType));
+            if (underlyingType != typeof(Single) && underlyingType != typeof(Double) && underlyingType != typeof(Decimal)) {
+                throw new InvalidOperationException(String.Format(Resources.TypeIsNotASupportedNumericTypeFormat, underlyingType));
             }
 
             if (NumberOfDecimalPlaces < 0) {
@@ -110,13 +110,11 @@
         /// <returns>A string representation of the value using the current culture when formatting the returned value.</returns>
         /// <exception cref="InvalidOperationException">Thrown when values is an unsupported type.</exception>
         protected override String FormatValueAsString(TValue value) {
+            if (value == null) {
+                return null;
+            }
+
             switch (value) {
-                case null:
-                    return null;
-
-                case Int16 @int16:
-                    return this.FormatValue(@int16);
-
                 case Int32 @int32:
                     return this.FormatValue(@int32);
 
@@ -219,7 +217,7 @@
             value = value.Replace(CultureInfo.CurrentCulture.NumberFormat.CurrencySymbol, String.Empty);
 
             try {
-                if (BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out result)) {
+                 if (BindConverter.TryConvertTo<TValue>(value, CultureInfo.CurrentCulture, out result)) {
                     validationErrorMessage = null;
                     return true;
                 }
@@ -229,16 +227,11 @@
                     validationErrorMessage = String.Format(ParsingErrorMessage, FieldIdentifier.FieldName.GetWords());
                 }
                 return false;
-            } catch {
-                validationErrorMessage = String.Format(Resources.UnableToParseInputIntoANumberFormat, FieldIdentifier.FieldName.GetWords());
+            } catch (Exception ex) {
+                validationErrorMessage = $"Value {value}, {ex.ToString()}"; // String.Format(Resources.UnableToParseInputIntoANumberFormat, FieldIdentifier.FieldName.GetWords());
                 result = default;
                 return false;
             }
-        }
-
-        String FormatValue(Int16 value) {
-            var outValue = value.ToString(this.FormatString, CultureInfo.CurrentCulture);
-            return outValue;
         }
 
         String FormatValue(Int32 value) {

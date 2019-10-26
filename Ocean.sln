@@ -28,6 +28,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFApp", "Sandbox\WPFApp\WP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerSideApp", "Sandbox\BlazorServerSideApp\BlazorServerSideApp.csproj", "{3C7E1777-9714-4051-8C25-A422D38E858A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClientSideApp", "Sandbox\BlazorClientSideApp\BlazorClientSideApp.csproj", "{8B504357-25BB-4A2B-87ED-466772768C47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppShared", "Sandbox\BlazorAppShared\BlazorAppShared.csproj", "{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -58,6 +62,14 @@ Global
 		{3C7E1777-9714-4051-8C25-A422D38E858A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C7E1777-9714-4051-8C25-A422D38E858A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C7E1777-9714-4051-8C25-A422D38E858A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B504357-25BB-4A2B-87ED-466772768C47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B504357-25BB-4A2B-87ED-466772768C47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B504357-25BB-4A2B-87ED-466772768C47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B504357-25BB-4A2B-87ED-466772768C47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -69,6 +81,8 @@ Global
 		{8F3CDCD9-B6B6-427E-B103-0035A160FF0E} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
 		{AF50BCAF-78B7-45DA-8B98-61613990A4AB} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
 		{3C7E1777-9714-4051-8C25-A422D38E858A} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
+		{8B504357-25BB-4A2B-87ED-466772768C47} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
+		{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA} = {25306CF4-C425-4344-9BBD-799C5DECA3ED}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {27893875-474A-4E45-AB05-766AA9E37259}

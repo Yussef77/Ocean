@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
-    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RazorLangVersion>3.0</RazorLangVersion>
+    <LangVersion>8.0</LangVersion>
     <AssemblyName>Oceanware.Ocean.Blazor</AssemblyName>
     <RootNamespace>Oceanware.Ocean.Blazor</RootNamespace>
     <SignAssembly>true</SignAssembly>
@@ -21,8 +22,12 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.7.0</Version>
-    <PackageReleaseNotes>Added support for displaying the currency symbol in the edit field.</PackageReleaseNotes>
+    <Version>1.8.0</Version>
+    <PackageReleaseNotes>Added support for being referenced by Client-Side apps.
+
+Removed support for Int16 (short) data types as Blazor does not support Int16 in the BindConverter class.
+
+</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -34,14 +39,15 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="3.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
     <Compile Remove="Images\**" />
     <Content Remove="Images\**" />
     <EmbeddedResource Remove="Images\**" />
     <None Remove="Images\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
@@ -68,6 +74,10 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>
