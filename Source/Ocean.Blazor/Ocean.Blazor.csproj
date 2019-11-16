@@ -77,7 +77,13 @@ Removed support for Int16 (short) data types as Blazor does not support Int16 in
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <!-- .js/.css files will be referenced via <script>/<link> tags; other content files will just be included in the app's 'dist' directory without any tags referencing them -->
+    <EmbeddedResource Include="wwwroot\**\*.js" LogicalName="blazor:js:%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**\*.css" LogicalName="blazor:css:%(RecursiveDir)%(Filename)%(Extension)" />
+    <EmbeddedResource Include="wwwroot\**" Exclude="**\*.js;**\*.css" LogicalName="blazor:file:%(RecursiveDir)%(Filename)%(Extension)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="wwwroot\ocean-blazor.js" />
+  </ItemGroup>
 </Project>

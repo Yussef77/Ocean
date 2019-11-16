@@ -65,6 +65,19 @@ Provides the `OceanNumericInput` component.
 - Easily enable mobile browser numeric popup keyboard, set the BrowserInputMode property to Decimal or Numeric.
 - Supports displaying the currency symbol in the input field if desired.  To enable, set the FormatString to `c`. 
 
+Provides the `OceanAutoComplete` component.
+- Enables a highly customizable auto complete experience.
+- Search callback to return items.
+- Selected item changed event when an item is selected.
+- Change appearance of the search results container using a custom CSS class or modify the auto-complete-container CSS class.
+- Change appearance of the selected search result item using a custom CSS class or modify the selected CSS class.
+- Handles the arrow up and down, page up and down, escape, enter, and tab keys.
+  - Arrow up and down move the selected item 1 item up or down.
+  - Page up and down move the selected item 6 items up or down.
+  - Escape closes the search results lists.
+  - Enter and tab keys raises the selected item changed event and closes the search results lists.
+
+
 #### Oceanware.Ocean.Blazor Requirements
 .NET Core 3.0 RTM, and latest Visual Studio 2019.
 

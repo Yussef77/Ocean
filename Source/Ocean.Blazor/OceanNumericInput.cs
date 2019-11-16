@@ -12,6 +12,9 @@
     /// An input component for editing numeric values.
     /// Supported numeric types are <see cref="Int32"/>, <see cref="Int64"/>, <see cref="Single"/>, <see cref="Double"/>, and <see cref="Decimal"/>.
     /// </summary>
+    /// <remarks>
+    /// Waiting on this bug https://github.com/aspnet/AspNetCore/issues/15437 to be fixed to support <seealso cref="Int16"/>.
+    /// </remarks>
     public class OceanNumericInput<TValue> : InputBase<TValue> {
         readonly Boolean _isWholeNumberOnly;
 

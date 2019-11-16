@@ -1,0 +1,70 @@
+﻿@page "/autoCompleteDemo"
+@inherits AutoCompleteDemoBase
+
+<h1>Auto Complete Demo</h1>
+
+<h3>Address Input - Lookup by City</h3>
+
+<EditForm Model="Person" OnValidSubmit="HandleValidSubmit">
+    <OceanValidator />
+
+    <p>
+        <label for="firstName">First Name</label>
+        <InputText autocomplete="off" placeholder="First name" maxlength="20" id="firstName" @bind-Value="Person.FirstName" />
+        <ValidationMessage For="(() => Person.FirstName)" />
+    </p>
+
+    <p>
+        <label for="lastName">Last Name</label>
+        <InputText autocomplete="off" placeholder="Last name" maxlength="20" id="lastName" @bind-Value="Person.LastName" />
+        <ValidationMessage For="(() => Person.LastName)" />
+    </p>
+
+    <p>
+        <label for="addressLineOne">Street Address</label>
+        <InputText autocomplete="off" placeholder="Street address" maxlength="64" id="addressLineOne" @bind-Value="Person.AddressLineOne" />
+        <ValidationMessage For="(() => Person.AddressLineOne)" />
+    </p>
+
+    <p>
+        <label for="city">City</label>
+        <OceanAutoComplete @bind-Value="Person.City"
+                           MinimumSearchLength="2"
+                           TItem="CityStateZip"
+                           ItemStringSelector="@(item => item.City)"
+                           SearchCallback="SearchByCity"
+                           SelectedItemChanged="SelectedItemChanged"
+
+                           id="city"
+                           autocomplete="off"
+                           placeholder="Search by city...">
+            <ItemTemplate Context="item">
+                @item.City, @item.State @item.Zip
+            </ItemTemplate>
+        </OceanAutoComplete>
+        <ValidationMessage For="(() => Person.City)" />
+    </p>
+
+    <p>
+        <label for="state">State</label>
+        <InputSelect autocomplete="off" id="state" @bind-Value="Person.State">
+            @foreach (var item in States) {
+                <option value=@item.Key>@item.Value</option>
+            }
+        </InputSelect>
+        <ValidationMessage For="(() => Person.State)" />
+    </p>
+
+    <p>
+        <label for="zip">Zip</label>
+        <InputText autocomplete="off" placeholder="Zip" maxlength="10" id="zip" @bind-Value="Person.Zip" />
+        <ValidationMessage For="(() => Person.Zip)" />
+    </p>
+
+    <p>
+        <label for="phone">Phone (optional extension)</label>
+        <InputText autocomplete="off" placeholder="Phone" maxlength="25" id="phone" @bind-Value="Person.Phone" />
+        <ValidationMessage For="(() => Person.Phone)" />
+    </p>
+
+</EditForm>

@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNetCore.Components.Web
+@using Microsoft.JSInterop
+@typeparam TItem
+@inherits OceanAutoCompleteBase<TItem>
+@inject IJSRuntime JSRuntime;
+
+<div>
+    <input @bind-value="SearchText"
+           @bind-value:event="oninput"
+           @onkeyup="HandleKeyUp"
+           @attributes="AdditionalAttributes"
+           autocomplete="off"
+           type="text" />
+    @if (this.ShowSuggestions) {
+        <div id="autoCompleteContainer" class="@AutoCompleteContainerCssClass">
+            @for (var i = 0; i < Suggestions.Count(); i++) {
+                var wrapper = Suggestions[i];
+                <div style="padding: .5rem;"
+                     class="@wrapper.SelectedItemCssClass"
+                     id="@wrapper.Id"
+                     @key="wrapper"
+                     @onclick="@(_ => ItemSelected(wrapper.Item))">
+                    @ItemTemplate(wrapper.Item)
+                </div>
+            }
+        </div>
+    }
+</div>

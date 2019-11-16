@@ -10,13 +10,14 @@
     <title>Server-Side Ocean Blazor</title>
     <base href="~/" />
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+    <link href="_content/Oceanware.Ocean.Blazor/css/ocean-blazor.css" rel="stylesheet" />
     <link href="css/site.css" rel="stylesheet" />
 </head>
 <body>
     <app>
         @(await Html.RenderComponentAsync<App>(RenderMode.ServerPrerendered))
     </app>
-
+    <script src="_content/Oceanware.Ocean.Blazor/ocean-blazor.js"></script>
     <script src="_framework/blazor.server.js"></script>
 </body>
 </html>

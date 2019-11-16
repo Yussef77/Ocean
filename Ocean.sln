@@ -28,9 +28,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WPFApp", "Sandbox\WPFApp\WP
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorServerSideApp", "Sandbox\BlazorServerSideApp\BlazorServerSideApp.csproj", "{3C7E1777-9714-4051-8C25-A422D38E858A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorClientSideApp", "Sandbox\BlazorClientSideApp\BlazorClientSideApp.csproj", "{8B504357-25BB-4A2B-87ED-466772768C47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorClientSideApp", "Sandbox\BlazorClientSideApp\BlazorClientSideApp.csproj", "{8B504357-25BB-4A2B-87ED-466772768C47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAppShared", "Sandbox\BlazorAppShared\BlazorAppShared.csproj", "{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorAppShared", "Sandbox\BlazorAppShared\BlazorAppShared.csproj", "{98CD0A30-A854-4F8E-8C09-ED6D91B01ECA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
