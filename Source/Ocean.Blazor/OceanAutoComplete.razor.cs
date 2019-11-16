@@ -214,7 +214,7 @@
         /// Enter and tab keys raises the selected item changed event and closes the search results lists.
         /// </para>
         /// </summary>
-        /// <param name="args">The <see cref="KeyboardEventArgs"/> instance containing the event data.</param>
+        /// <param name="args">The KeyboardEventArgs instance containing the event data.</param>
         public async Task HandleKeyUp(KeyboardEventArgs args) {
             if (args.Key == "ArrowDown") {
                 await MoveSelection(DownArrowCount);
