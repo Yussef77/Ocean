@@ -10,7 +10,9 @@
     <AssemblyOriginatorKeyFile>Oceanware.Ocean.snk</AssemblyOriginatorKeyFile>
     <Description>Provides the OceanValidator that is the Blazor middleware between the Ocean validation and case correction library and the Blazor UI. This NuGet package provides the OceanValidator that is used on Blazor Razor pages. This replaces the default DataAnnotations validation library validator.
 
-Package also include the OceanNumericInput component, a replacement for the Blazor InputNumber.</Description>
+Package also includes the OceanNumericInput component, a replacement for the Blazor InputNumber.
+
+Package also includes the OceanAutoComplete component, a high-octane auto complete control.</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <RepositoryUrl>https://github.com/OceanLibrary/Ocean</RepositoryUrl>
     <PackageTags>validation;blazor</PackageTags>
@@ -23,11 +25,7 @@ Package also include the OceanNumericInput component, a replacement for the Blaz
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
     <Version>1.8.0</Version>
-    <PackageReleaseNotes>Added support for being referenced by Client-Side apps.
-
-Removed support for Int16 (short) data types as Blazor does not support Int16 in the BindConverter class.
-
-</PackageReleaseNotes>
+    <PackageReleaseNotes>Added the OceanAutoComplete component.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
