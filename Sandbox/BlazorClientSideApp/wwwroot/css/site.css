@@ -4,16 +4,6 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-/*sets the background color of the search results selected item.*/
-.selected-city {
-    background-color: antiquewhite;
-}
-
-/*Adds the background color of the search result container to the auto-complete-container class.*/
-.auto-complete-container {
-    background-color: whitesmoke;
-}
-
 app {
     position: relative;
     display: flex;

@@ -12,11 +12,6 @@ label {
     display: block;
 }
 
-/*sets the background color of the search results selected item.*/
-.selected-city {
-    background-color: whitesmoke;
-}
-
 .btn-primary {
     color: #fff;
     background-color: #1b6ec2;
