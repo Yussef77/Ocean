@@ -1,24 +1,22 @@
-﻿
-.selected-search-result {
+﻿.ocean-blazor-selected-search-result {
     background-color: gainsboro;
 }
 
-.not-selected-search-result {
+.ocean-blazor-not-selected-search-result {
     background-color: white;
 }
 
-.not-selected-search-result:hover {
-    background-color: gainsboro;
-}
+    .ocean-blazor-not-selected-search-result:hover {
+        background-color: gainsboro;
+    }
 
-
-.auto-complete-not-found {
+.ocean-blazor-auto-complete-not-found {
     padding: .5em;
     border: 1px solid;
     width: 100%;
 }
 
-.auto-complete-container {
+.ocean-blazor-auto-complete-container {
     cursor: pointer;
     border: 1px solid;
     width: 100%;

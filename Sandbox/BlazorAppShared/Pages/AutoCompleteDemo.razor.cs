@@ -27,7 +27,7 @@
             this.Person = new Person();
         }
 
-        protected void SelectedItemChanged(CityStateZip selectedItem) {
+        protected void CitySelectedItemChanged(CityStateZip selectedItem) {
             if (selectedItem != null) {
                 //this.Person.City = selectedItem.City; // setting this is optional as the property is changed by the binding in the ui:  @bind-Value="Person.City"
                 this.Person.State = selectedItem.State;

@@ -24,6 +24,7 @@
         Timer _debounceTimer;
         EditContext _editContext;
         FieldIdentifier _fieldIdentifier;
+        Boolean _mouseClickedHandled;
         String _searchText = String.Empty;
         String _value;
 
@@ -35,13 +36,6 @@
         public IReadOnlyDictionary<String, Object> AdditionalAttributes { get; set; }
 
         /// <summary>
-        /// Gets or sets the auto complete container CSS class.
-        /// </summary>
-        /// <value>The auto complete container CSS class.</value>
-        [Parameter]
-        public String AutoCompleteContainerCssClass { get; set; } = "auto-complete-container";
-
-        /// <summary>
         /// Gets or sets the debounce time between key strokes and the search callback being invoked.  Default is 300ms.
         /// </summary>
         /// <value>The debounce.</value>
@@ -49,7 +43,14 @@
         public Int32 Debounce { get; set; } = 300;
 
         /// <summary>
-        /// Gets or sets the item string selector.
+        /// Gets or sets the disabled.
+        /// </summary>
+        /// <value>The disabled.</value>
+        [Parameter]
+        public Boolean Disabled { get; set; }
+
+        /// <summary>
+        /// Gets or sets the item String selector.
         /// <para>
         /// The purpose of this function is to return the value to be displayed in the input control upon item selection.
         /// </para>
@@ -57,7 +58,7 @@
         /// <example>
         /// For search result item has a City property use this:  ItemStringSelector="@(item => item.City)"
         /// </example>
-        /// <value>The item string selector.</value>
+        /// <value>The item String selector.</value>
         [Parameter]
         public Func<TItem, String> ItemStringSelector { get; set; }
 
@@ -101,16 +102,6 @@
         /// <value>The selected item changed.</value>
         [Parameter]
         public EventCallback<TItem> SelectedItemChanged { get; set; }
-
-        /// <summary>
-        /// Gets or sets the selected item class. The default value of the selected class is a background-color of whitesmoke.
-        /// <para>
-        /// To change this value, set this property to the class name you want applied to selected items.
-        /// </para>
-        /// </summary>
-        /// <value>The selected item class.</value>
-        [Parameter]
-        public String SelectedItemClass { get; set; } = "selected-search-result";
 
         /// <summary>
         /// Gets or sets the value.
@@ -212,6 +203,7 @@
         /// </para>
         /// </summary>
         public void Dispose() {
+            _debounceTimer.Elapsed -= Search;
             _debounceTimer.Dispose();
         }
 
@@ -232,6 +224,7 @@
         /// </summary>
         /// <param name="args">The KeyboardEventArgs instance containing the event data.</param>
         protected async Task HandleKeyUp(KeyboardEventArgs args) {
+            _mouseClickedHandled = false;
             if (Suggestions == null || Suggestions.Length == 0) {
                 if (args.Key == "Escape") {
                     ResetUI();
@@ -259,24 +252,16 @@
         /// Handles on focus out event.
         /// </summary>
         protected async Task HandleOnFocusOut(FocusEventArgs _) {
-            _debounceTimer.Stop();
-            if (this.ShowNotFound && this.SelectedIndex == -1) {
-                this.Value = _searchText;
-                await ValueChanged.InvokeAsync(this.Value);
-                _editContext?.NotifyFieldChanged(_fieldIdentifier);
-                await SelectedItemChanged.InvokeAsync(default);
-                this.ResetUI();
-                await InvokeAsync(StateHasChanged);
-            } else if (this.ShowSuggestions && this.SelectedIndex > -1) {
-                await ItemSelected(Suggestions[SelectedIndex].Item);
-            }
+            await Task.Delay(150); // need delay in case FocusOut was caused by a mouse click selecting an item.
+            await OnFocusOut();
         }
 
         /// <summary>
-        /// Invoked when the item is selected.
+        /// Invoked when the item is selected either by pressing the ENTER or TAB key or clicking the item with the mouse.
         /// </summary>
         /// <param name="item">The selected item.</param>
         protected async Task ItemSelected(TItem item) {
+            _mouseClickedHandled = true;
             _debounceTimer.Stop();
             await ValueChanged.InvokeAsync(this.ComputeItemStringValue(item));
             await SelectedItemChanged.InvokeAsync(item);
@@ -292,16 +277,16 @@
         /// </summary>
         /// <exception cref="InvalidOperationException">Thrown when SearchCallback is null, but is required. method call is invalid for the object's current state.</exception>
         protected override void OnInitialized() {
+            if (this.SearchCallback == null) {
+                throw new InvalidOperationException("SearchCallback is null, but is required.");
+            }
+
             _editContext = CascadedEditContext;
             _fieldIdentifier = FieldIdentifier.Create(ValueExpression);
             _debounceTimer = new Timer();
             _debounceTimer.Interval = Debounce;
             _debounceTimer.AutoReset = false;
             _debounceTimer.Elapsed += Search;
-
-            if (this.SearchCallback == null) {
-                throw new InvalidOperationException("SearchCallback is null, but is required.");
-            }
             base.OnInitialized();
         }
 
@@ -311,7 +296,7 @@
         /// <param name="source">The source.</param>
         /// <param name="e">The <see cref="ElapsedEventArgs"/> instance containing the event data.</param>
         protected async void Search(Object source, ElapsedEventArgs e) {
-            IsSearching = true;
+            this.IsSearching = true;
             await InvokeAsync(StateHasChanged);
 
             var searchResults = await SearchCallback?.Invoke(_searchText);
@@ -338,7 +323,7 @@
             this.ShowNotFound = false;
             this.Suggestions = list.ToArray();
             this.ShowSuggestions = true;
-            IsSearching = false;
+            this.IsSearching = false;
             await InvokeAsync(StateHasChanged);
         }
 
@@ -346,20 +331,15 @@
             return ItemStringSelector?.Invoke(item) ?? item?.ToString();
         }
 
-        /// <summary>
-        /// Indexes to identifier.
-        /// </summary>
-        /// <param name="index">The index.</param>
-        /// <returns>String.</returns>
         String IndexToId(Int32 index) {
-            const string letters = "ABCDEFGHIJ";
+            const String letters = "ABCDEFGHIJ";
             var indexNumbers = index.ToString();
-            var id = string.Empty;
+            var id = String.Empty;
             foreach (var item in indexNumbers) {
                 var value = Int32.Parse(item.ToString());
                 id = String.Concat(id, letters[value]);
             }
-            return id;
+            return $"OceanAutoComplete{id}"; ;
         }
 
         async Task MoveSelection(Int32 count) {
@@ -381,16 +361,29 @@
             }
 
             if (this.SelectedIndex > -1) {
-                this.Suggestions[this.SelectedIndex].SelectedItemCssClass = "not-selected-search-result"; // String.Empty;
+                this.Suggestions[this.SelectedIndex].SelectedItemCssClass = "ocean-blazor-not-selected-search-result";
             }
 
             this.SelectedIndex = index;
             if (this.SelectedIndex > -1) {
-                if (String.IsNullOrWhiteSpace(this.SelectedItemClass)) {
-                    this.SelectedItemClass = "selected-search-result";
-                }
-                this.Suggestions[this.SelectedIndex].SelectedItemCssClass = this.SelectedItemClass;
+                this.Suggestions[this.SelectedIndex].SelectedItemCssClass = "ocean-blazor-selected-search-result";
                 await Interop.ScrollAutoCompleteIfNeeded(JSRuntime, this.Suggestions[this.SelectedIndex].Id);
+            }
+        }
+
+        async Task OnFocusOut() {
+            if (_mouseClickedHandled) {
+                _mouseClickedHandled = false;
+                return;
+            }
+            _debounceTimer.Stop();
+            if ((this.ShowNotFound && this.SelectedIndex == -1) || (this.ShowSuggestions && this.SelectedIndex == -1)) {
+                this.Value = _searchText;
+                await ValueChanged.InvokeAsync(this.Value);
+                _editContext?.NotifyFieldChanged(_fieldIdentifier);
+                await SelectedItemChanged.InvokeAsync(default);
+                this.ResetUI();
+                await InvokeAsync(StateHasChanged);
             }
         }
 

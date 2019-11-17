@@ -5,7 +5,7 @@
     },
     scrollAutoCompleteIfNeeded(elementId) {
         var element = document.getElementById(elementId);
-        var container = document.getElementById('autoCompleteContainer');
+        var container = document.getElementById('oceanBlazorAutoCompleteContainer');
         if (element.offsetTop < container.scrollTop) {
             container.scrollTop = element.offsetTop;
         } else {
