@@ -127,6 +127,9 @@
             }
         }
 
+        [Parameter]
+        public EventCallback<String> ValueChanged { get; set; }
+
         /// <summary>
         /// Gets or sets the value expression.
         /// </summary>
@@ -228,7 +231,7 @@
         /// </para>
         /// </summary>
         /// <param name="args">The KeyboardEventArgs instance containing the event data.</param>
-        public async Task HandleKeyUp(KeyboardEventArgs args) {
+        protected async Task HandleKeyUp(KeyboardEventArgs args) {
             if (Suggestions == null || Suggestions.Length == 0) {
                 if (args.Key == "Escape") {
                     ResetUI();
@@ -255,9 +258,17 @@
         /// <summary>
         /// Handles on focus out event.
         /// </summary>
-        protected void HandleOnFocusOut(FocusEventArgs _) {
+        protected async Task HandleOnFocusOut(FocusEventArgs _) {
+            _debounceTimer.Stop();
             if (this.ShowNotFound || this.SelectedIndex == -1) {
+                this.Value = _searchText;
+                await ValueChanged.InvokeAsync(this.Value);
+                _editContext?.NotifyFieldChanged(_fieldIdentifier);
+                await SelectedItemChanged.InvokeAsync(default);
                 this.ResetUI();
+                await InvokeAsync(StateHasChanged);
+            } else if (this.ShowSuggestions && this.SelectedIndex > -1) {
+                await ItemSelected(Suggestions[SelectedIndex].Item);
             }
         }
 
@@ -267,6 +278,7 @@
         /// <param name="item">The selected item.</param>
         protected async Task ItemSelected(TItem item) {
             _debounceTimer.Stop();
+            await ValueChanged.InvokeAsync(this.ComputeItemStringValue(item));
             await SelectedItemChanged.InvokeAsync(item);
             _editContext?.NotifyFieldChanged(_fieldIdentifier);
             this.ShowSuggestions = false;

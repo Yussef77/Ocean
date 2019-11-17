@@ -24,16 +24,19 @@
 
         public AutoCompleteDemoBase() {
             this.States = StateAbbreviationNameTool.Instance.GetStateAbbreviationAndNames();
-            this.Person = new Person {
-                ActiveRuleSet = ValidationConstants.Insert
-            };
+            this.Person = new Person();
         }
 
         protected void SelectedItemChanged(CityStateZip selectedItem) {
-            this.Person.City = selectedItem.City;
-            this.Person.State = selectedItem.State;
-            this.Person.Zip = selectedItem.Zip;
-            Interop.Focus(JSRuntime, "phone");
+            if (selectedItem != null) {
+                //this.Person.City = selectedItem.City; // setting this is optional as the property is changed by the binding in the ui:  @bind-Value="Person.City"
+                this.Person.State = selectedItem.State;
+                this.Person.Zip = selectedItem.Zip;
+                Interop.Focus(JSRuntime, "phone");
+            } else {
+                // if the selectedItem is null, maybe your application will want to clear out the fields
+                // in this app, we'll let the user enter values that may not be in the search results.
+            }
         }
 
         protected async Task<IEnumerable<CityStateZip>> SearchByCity(string searchText) {
