@@ -13,7 +13,7 @@
             }
         }
 
-        public String SearchKey { get; set; }
+        public String SearchKey { get; private set; }
 
         public String State { get; set; }
 

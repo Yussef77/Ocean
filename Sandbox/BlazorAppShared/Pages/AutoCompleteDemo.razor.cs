@@ -39,7 +39,7 @@
             }
         }
 
-        protected async Task<IEnumerable<CityStateZip>> SearchByCity(string searchText) {
+        protected async Task<IEnumerable<CityStateZip>> SearchByCity(String searchText) {
             var items = await this.AddressService.SearchByCityAsync(searchText);
             return items;
         }
