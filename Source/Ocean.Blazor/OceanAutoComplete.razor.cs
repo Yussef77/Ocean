@@ -142,6 +142,7 @@
             get => _searchText;
             set {
                 _searchText = value;
+                _value = value;
 
                 if (value.Length == 0) {
                     ResetUI();
@@ -378,7 +379,6 @@
             }
             _debounceTimer.Stop();
             if ((this.ShowNotFound && this.SelectedIndex == -1) || (this.ShowSuggestions && this.SelectedIndex == -1)) {
-                this.Value = _searchText;
                 await ValueChanged.InvokeAsync(this.Value);
                 _editContext?.NotifyFieldChanged(_fieldIdentifier);
                 await SelectedItemChanged.InvokeAsync(default);
@@ -389,6 +389,10 @@
                 // we can't trap the pressing of the TAB in the HandleKeyUp method because this 
                 //  OnFocusOut is invoked before the HandleKeyUp method.
                 await ItemSelected(Suggestions[SelectedIndex].Item);
+            } else {
+                // forces validation to run in case the user changed the value but did not open the search results.
+                await ValueChanged.InvokeAsync(this.Value);
+                _editContext?.NotifyFieldChanged(_fieldIdentifier);
             }
         }
 
