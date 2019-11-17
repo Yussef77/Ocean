@@ -27,7 +27,7 @@
     </p>
 
     <p>
-        <label for="city">City</label>
+        <label for="city">City (Indiana Only)</label>
         <OceanAutoComplete @bind-Value="Person.City"
                            MinimumSearchLength="2"
                            TItem="CityStateZip"
@@ -40,6 +40,9 @@
             <ItemTemplate Context="item">
                 @item.City, @item.State @item.Zip
             </ItemTemplate>
+            <NotFoundTemplate>
+                No records found matching this city.
+            </NotFoundTemplate>
         </OceanAutoComplete>
         <ValidationMessage For="(() => Person.City)" />
     </p>

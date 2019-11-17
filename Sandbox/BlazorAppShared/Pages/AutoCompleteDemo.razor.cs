@@ -25,15 +25,12 @@
         public AutoCompleteDemoBase() {
             this.States = StateAbbreviationNameTool.Instance.GetStateAbbreviationAndNames();
             this.Person = new Person {
-                ActiveRuleSet = ValidationConstants.Insert,
-                AddressLineOne = "200 Noll Plaza",
-                City = "Huntington",
-                State = "IN",
-                Zip = "46750"
+                ActiveRuleSet = ValidationConstants.Insert
             };
         }
 
         protected void SelectedItemChanged(CityStateZip selectedItem) {
+            this.Person.City = selectedItem.City;
             this.Person.State = selectedItem.State;
             this.Person.Zip = selectedItem.Zip;
             Interop.Focus(JSRuntime, "phone");

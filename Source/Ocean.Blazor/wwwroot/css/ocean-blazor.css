@@ -2,12 +2,18 @@
     background-color: gainsboro;
 }
 
+.auto-complete-not-found {
+    padding: .5em;
+    border: 1px solid;
+    width: 100%;
+}
+
 .auto-complete-container {
-    cursor:pointer; 
-    border:1px solid; 
-    width:100%; 
-    max-height:300px; 
-    position:relative; 
-    overflow-x:hidden; 
-    overflow-y:auto;
+    cursor: pointer;
+    border: 1px solid;
+    width: 100%;
+    max-height: 300px;
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: auto;
 }

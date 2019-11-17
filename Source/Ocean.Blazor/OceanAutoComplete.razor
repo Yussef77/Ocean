@@ -4,25 +4,36 @@
 @inherits OceanAutoCompleteBase<TItem>
 @inject IJSRuntime JSRuntime;
 
-<div>
-    <input @bind-value="SearchText"
-           @bind-value:event="oninput"
-           @onkeyup="HandleKeyUp"
-           @attributes="AdditionalAttributes"
-           autocomplete="off"
-           type="text" />
-    @if (this.ShowSuggestions) {
-        <div id="autoCompleteContainer" class="@AutoCompleteContainerCssClass">
-            @for (var i = 0; i < Suggestions.Count(); i++) {
-                var wrapper = Suggestions[i];
-                <div style="padding: .5rem;"
-                     class="@wrapper.SelectedItemCssClass"
-                     id="@wrapper.Id"
-                     @key="wrapper"
-                     @onclick="@(_ => ItemSelected(wrapper.Item))">
-                    @ItemTemplate(wrapper.Item)
+    <div>
+        <input @bind-value="SearchText"
+               @bind-value:event="oninput"
+               @onkeyup="HandleKeyUp"
+               @attributes="AdditionalAttributes"
+               @onfocusout="HandleOnFocusOut"
+               autocomplete="off"
+               type="text" />
+        @if (this.ShowSuggestions) {
+            <div id="autoCompleteContainer" class="@AutoCompleteContainerCssClass">
+                @for (var i = 0; i < Suggestions.Count(); i++) {
+                    var wrapper = Suggestions[i];
+                    <div style="padding: .5rem;"
+                         class="@wrapper.SelectedItemCssClass"
+                         id="@wrapper.Id"
+                         @key="wrapper"
+                         @onclick="@(_ => ItemSelected(wrapper.Item))">
+                        @ItemTemplate(wrapper.Item)
+                    </div>
+                }
+            </div>
+        } else if (this.ShowNotFound) {
+            @if (this.NotFoundTemplate != null) {
+                <div class="auto-complete-not-found">
+                    @NotFoundTemplate
+                </div>
+            } else {
+                <div class="auto-complete-not-found">
+                    No Results Found
                 </div>
             }
-        </div>
-    }
-</div>
+        }
+    </div>

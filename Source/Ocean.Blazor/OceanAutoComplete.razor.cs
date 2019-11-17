@@ -82,6 +82,13 @@
         public Int32 MinimumSearchLength { get; set; } = 1;
 
         /// <summary>
+        /// Gets or sets the template to show when no search results are found.
+        /// </summary>
+        /// <value>The not found template.</value>
+        [Parameter]
+        public RenderFragment NotFoundTemplate { get; set; }
+
+        /// <summary>
         /// Gets or sets the search callback.
         /// </summary>
         /// <value>The search callback.</value>
@@ -158,6 +165,12 @@
         protected Int32 SelectedIndex { get; set; } = -1;
 
         /// <summary>
+        /// Gets or sets the show not found.
+        /// </summary>
+        /// <value>The show not found.</value>
+        protected Boolean ShowNotFound { get; set; }
+
+        /// <summary>
         /// Gets or sets the show suggestions.
         /// </summary>
         /// <value>The show suggestions.</value>
@@ -216,6 +229,12 @@
         /// </summary>
         /// <param name="args">The KeyboardEventArgs instance containing the event data.</param>
         public async Task HandleKeyUp(KeyboardEventArgs args) {
+            if (Suggestions == null || Suggestions.Length == 0) {
+                if (args.Key == "Escape") {
+                    ResetUI();
+                }
+                return;
+            }
             if (args.Key == "ArrowDown") {
                 await MoveSelection(DownArrowCount);
             } else if (args.Key == "ArrowUp") {
@@ -234,6 +253,15 @@
         }
 
         /// <summary>
+        /// Handles on focus out event.
+        /// </summary>
+        protected void HandleOnFocusOut(FocusEventArgs _) {
+            if (this.ShowNotFound || this.SelectedIndex == -1) {
+                this.ResetUI();
+            }
+        }
+
+        /// <summary>
         /// Invoked when the item is selected.
         /// </summary>
         /// <param name="item">The selected item.</param>
@@ -243,7 +271,6 @@
             _editContext?.NotifyFieldChanged(_fieldIdentifier);
             this.ShowSuggestions = false;
             this.SelectedIndex = -1;
-            _searchText = ComputeItemStringValue(item);
             await InvokeAsync(StateHasChanged);
         }
 
@@ -281,13 +308,22 @@
                 return;
             }
 
+            if (!searchResults.Any()) {
+                this.Suggestions = null;
+                this.ShowSuggestions = false;
+                this.IsSearching = false;
+                this.ShowNotFound = true;
+                await InvokeAsync(StateHasChanged);
+                return;
+            }
+
             var list = new List<OceanAutoCompleteItemWrapper<TItem>>();
             var index = 0;
             foreach (var item in searchResults) {
                 list.Add(new OceanAutoCompleteItemWrapper<TItem>(item, IndexToId(index)));
                 index++;
             }
-
+            this.ShowNotFound = false;
             this.Suggestions = list.ToArray();
             this.ShowSuggestions = true;
             IsSearching = false;
@@ -349,6 +385,7 @@
         void ResetUI() {
             _debounceTimer.Stop();
             this.ShowSuggestions = false;
+            this.ShowNotFound = false;
             this.Suggestions = new OceanAutoCompleteItemWrapper<TItem>[0];
             this.SelectedIndex = -1;
         }
