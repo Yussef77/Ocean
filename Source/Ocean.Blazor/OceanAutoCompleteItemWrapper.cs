@@ -8,7 +8,7 @@
 
         public TItem Item { get; }
 
-        public String SelectedItemCssClass { get; set; }
+        public String SelectedItemCssClass { get; set; } = "not-selected-search-result";
 
         public OceanAutoCompleteItemWrapper(TItem item, String id) {
             this.Item = item;

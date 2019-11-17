@@ -260,7 +260,7 @@
         /// </summary>
         protected async Task HandleOnFocusOut(FocusEventArgs _) {
             _debounceTimer.Stop();
-            if (this.ShowNotFound || this.SelectedIndex == -1) {
+            if (this.ShowNotFound && this.SelectedIndex == -1) {
                 this.Value = _searchText;
                 await ValueChanged.InvokeAsync(this.Value);
                 _editContext?.NotifyFieldChanged(_fieldIdentifier);
@@ -381,7 +381,7 @@
             }
 
             if (this.SelectedIndex > -1) {
-                this.Suggestions[this.SelectedIndex].SelectedItemCssClass = String.Empty;
+                this.Suggestions[this.SelectedIndex].SelectedItemCssClass = "not-selected-search-result"; // String.Empty;
             }
 
             this.SelectedIndex = index;

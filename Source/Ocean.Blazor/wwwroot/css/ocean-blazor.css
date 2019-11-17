@@ -1,6 +1,16 @@
-﻿.selected-search-result {
+﻿
+.selected-search-result {
     background-color: gainsboro;
 }
+
+.not-selected-search-result {
+    background-color: white;
+}
+
+.not-selected-search-result:hover {
+    background-color: gainsboro;
+}
+
 
 .auto-complete-not-found {
     padding: .5em;
