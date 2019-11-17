@@ -24,9 +24,8 @@ Package also includes the OceanAutoComplete component, a high-octane auto comple
     <Product>Oceanware Ocean Blazor</Product>
     <RepositoryType>git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
-    <Version>1.9.0</Version>
-    <PackageReleaseNotes>Contains the 1.8.0 release that added the OceanAutoComplete component.
-Has bug fix for color and value.</PackageReleaseNotes>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes>Added the  OceanAutoComplete component.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

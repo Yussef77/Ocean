@@ -242,7 +242,7 @@
             } else if (args.Key == "Escape") {
                 ResetUI();
             } else if (SelectedIndex >= 0 && SelectedIndex < Suggestions.Count()) {
-                if (args.Key == "Enter" || args.Key == "Tab") {
+                if (args.Key == "Enter") {
                     await ItemSelected(Suggestions[SelectedIndex].Item);
                 }
             }
@@ -384,6 +384,11 @@
                 await SelectedItemChanged.InvokeAsync(default);
                 this.ResetUI();
                 await InvokeAsync(StateHasChanged);
+            } else if (this.ShowSuggestions && this.SelectedIndex > -1) {
+                // this code is reached when the TAB key is pressed, and the search results are dislayed and a search result is selected.
+                // we can't trap the pressing of the TAB in the HandleKeyUp method because this 
+                //  OnFocusOut is invoked before the HandleKeyUp method.
+                await ItemSelected(Suggestions[SelectedIndex].Item);
             }
         }
 
