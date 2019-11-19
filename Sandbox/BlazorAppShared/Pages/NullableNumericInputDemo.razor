@@ -43,38 +43,32 @@
         <ValidationMessage For="(() => NullableNumerics.Revenue)" />
     </p>
 
-    <button style="margin-bottom: 30px;" type="submit">Display Model Values</button>
-
-    @if (ShowModelNameValues) {
-        <div class="result">
-            <table cellpadding="5">
-                <thead>
+    <div class="result">
+        <table cellpadding="5">
+            <thead>
+                <tr>
+                    <th>Property Name</th>
+                    <th>Property Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in GetModelNameValues()) {
                     <tr>
-                        <th>Property Name</th>
-                        <th>Property Value</th>
+                        <td>@item.Name</td>
+                        <td>@item.Value</td>
                     </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in GetModelNameValues()) {
-                        <tr>
-                            <td>@item.Name</td>
-                            <td>@item.Value</td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-
-        <button @onclick="ClearValuesClicked">Clear Model Values</button>
+                }
+            </tbody>
+        </table>
+    </div>
     }
 </EditForm>
 
 
 @code {
-    public NullableNumerics NullableNumerics { get; set; } = new NullableNumerics();
-    public Boolean ShowModelNameValues { get; private set; }
+    NullableNumerics NullableNumerics { get; set; } = new NullableNumerics();
 
-    public IEnumerable<NameValuePair> GetModelNameValues() {
+    IEnumerable<NameValuePair> GetModelNameValues() {
         var list = new List<NameValuePair>();
         foreach (var pi in this.NullableNumerics.GetType().GetProperties(System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.Instance)) {
             list.Add(new NameValuePair(pi.Name, pi.GetValue(this.NullableNumerics)));
@@ -82,11 +76,7 @@
         return list;
     }
 
-    public void HandleValidSubmit() {
-        this.ShowModelNameValues = true;
-    }
+    void HandleValidSubmit() {
 
-    public void ClearValuesClicked() {
-        this.ShowModelNameValues = false;
     }
 }
